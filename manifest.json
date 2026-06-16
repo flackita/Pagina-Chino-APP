@@ -1,0 +1,22 @@
+{
+  "short_name": "CopyChinese",
+  "name": "CopyChinese HSK Flashcards",
+  "description": "Aplicación minimalista para entrenar caracteres chinos HSK en cualquier lugar.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fbf9f3",
+  "theme_color": "#1b4332",
+  "icons": [
+    {
+      "src": "https://img.icons8.com/fluency/192/000000/chinese-converter.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://img.icons8.com/fluency/512/000000/chinese-converter.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

@@ -1,0 +1,805 @@
+/* --- PALETA DE COLORES ORIGINAL (Limpiada y Estilizada) --- */
+:root {
+    --bg-principal: #fdfbf3;       /* Verde pastel muy claro, limpio y relajante */
+    --card-frente: #ffffff;        /* Blanco puro para las tarjetas, genera contraste limpio */
+    --verde-bosque: #0A3323;       /* Tu verde oscuro principal para textos e importancia */
+    --verde-acento: #4a7c50;       /* Verde intermedio para estados activos y hovers */
+    --verde-claro: #b1d8b7;        /* Verde suave para botones secundarios */
+    --amarillo-pista: #fcfde6;     /* Tu amarillo pastel sutil para la cara trasera/pistas */
+    --rojo-error: #a84343;         /* Rojo opaco para el marcador de incorrectas */
+    --texto-dark: #1e3021;         /* Texto casi negro con matiz verde para evitar fatiga */
+    --texto-mutado: #708573;       /* Gris verde para instrucciones secundarias */
+    --borde-sutil: rgba(47, 82, 51, 0.08);
+    --sombra-premium: 0 10px 30px rgba(47, 82, 51, 0.05);
+}
+
+/* --- BASE --- */
+body {
+    /* Prioriza fuentes modernas, redondeadas y limpias del sistema */
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Ubuntu", "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--bg-principal);
+    color: var(--texto-dark);
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    height: 100vh;
+    overflow-y: auto; /* Permite scroll si la pantalla es muy pequeña */
+    position: relative;
+}
+
+/* --- PANTALLA 1: ARCHIVO DEL BOTICARIO (MENÚ) --- */
+#menu-screen {
+    width: 100%;
+    max-width: 600px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-weight: 700; /* Un poco más gruesa para que luzca la forma redonda */
+    font-size: 2.4rem;
+    color: var(--verde-bosque);
+    margin: 0 0 10px 0;
+    letter-spacing: -0.5px;
+}
+
+.menu-subtitle {
+    font-size: 0.95rem;
+    color: var(--texto-mutado);
+    margin: 0;
+}
+
+/* Cuadrícula de Niveles */
+.deck-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.deck-card {
+    background-color: var(--card-frente);
+    border: 1px solid var(--borde-sutil);
+    border-radius: 16px;
+    padding: 30px 24px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: var(--sombra-premium);
+}
+
+/* Línea decorativa lateral basada en tu verde bosque */
+.deck-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: var(--verde-bosque);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.deck-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(47, 82, 51, 0.2);
+    box-shadow: 0 16px 36px rgba(47, 82, 51, 0.08);
+}
+
+.deck-card:hover::before {
+    opacity: 1;
+}
+
+.deck-title {
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif !important;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--verde-bosque);
+    margin-bottom: 6px;
+}
+
+.deck-desc {
+    font-size: 0.85rem;
+    color: var(--texto-mutado);
+}
+
+/* --- PANTALLA 2: MESA DE ESTUDIO --- */
+#study-screen {
+    width: 100%;
+    max-width: 400px;
+    /* Esto evita que se mueva hacia arriba */
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 100px); /* Ajusta según la altura de tu navbar */
+    justify-content: flex-start;
+}
+
+.study-header h2,
+#results-screen h2,
+.modal-content h3 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--verde-bosque);
+}
+
+#btn-back {
+    background: none;
+    border: none;
+    color: var(--texto-mutado);
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 8px 0;
+    transition: color 0.2s;
+    font-weight: 500;
+}
+
+#btn-back:hover {
+    color: var(--verde-bosque);
+}
+
+.study-header h2 {
+    margin: 0;
+    font-family: 'Times New Roman', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--verde-bosque);
+}
+
+/* Contenedor Flashcard */
+.flashcard-container {
+    width: 100%;
+    max-width: 400px;
+    height: 260px; /* Altura fija para que la interfaz no salte al cambiar de tarjeta */
+    perspective: 1000px;
+    margin: 0 auto 30px auto;
+}
+
+.flashcard {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.flashcard.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* ¡Crucial para que no se vea el reverso! */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background: var(--card-frente);
+    border: 1px solid var(--borde-sutil);
+    box-shadow: var(--sombra-premium);
+    overflow: hidden; /* Evita que el texto gigante se salga de la tarjeta */
+}
+
+/* Cara Frontal (Limpia, sin emojis) */
+.card-front #display-hanzi {
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-size: 5rem; /* Que se vea enorme y claro en la micro */
+    font-weight: 600;
+    color: var(--verde-bosque);
+}
+
+/* Cara Trasera (Usa el amarillo pastel suave de tu app original para las pistas) */
+.card-back {
+    transform: rotateY(180deg);
+    background-color: var(--amarillo-pista);
+}
+
+.card-back h2 {
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--verde-bosque);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.5px;
+}
+
+.card-back p {
+    font-size: 1.2rem;
+    color: var(--texto-dark);
+    margin: 0;
+    font-weight: 300;
+    text-align: center;
+}
+
+/* Estado de Acierto (Jade oscuro con texto blanco, muy sofisticado) */
+.card-back.correct-green {
+    background-color: var(--verde-bosque) !important;
+    border-color: var(--verde-bosque) !important;
+}
+
+.card-back.correct-green h2,
+.card-back.correct-green p {
+    color: #ffffff !important;
+}
+
+/* --- CONTROLES E INPUT --- */
+.controls {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex-shrink: 0; /* Evita que el input se encoja cuando aparece el teclado */
+    margin-bottom: 20px;
+}
+
+#user-input {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.3rem;
+    text-align: center;
+    border: 1px solid rgba(47, 82, 51, 0.15);
+    background-color: var(--card-frente);
+    border-radius: 14px;
+    color: var(--texto-dark);
+    box-sizing: border-box;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.01);
+    transition: all 0.2s;
+}
+
+#user-input:focus {
+    border-color: var(--verde-bosque);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(47, 82, 51, 0.06);
+}
+
+/* Botones */
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.button-group button {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#btn-hint {
+    background-color: var(--verde-bosque);
+    color: #ffffff;
+}
+
+#btn-hint:hover {
+    background-color: var(--verde-acento);
+}
+
+#btn-skip {
+    background-color: var(--verde-claro);
+    color: var(--verde-bosque);
+}
+
+#btn-skip:hover {
+    background-color: #a0bfa5;
+}
+
+/* --- MARCADOR --- */
+.scoreboard {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    display: flex;
+    justify-content: center; /* Centramos en lugar de space-around para mayor control */
+    gap: 40px;              /* Espacio entre los dos contadores */
+    width: 100%;
+    margin-top: 10px;       /* Reducido de 30px a 10px */
+    padding-top: 10px;      /* Reducido de 20px a 10px */
+    border-top: 1px solid var(--borde-sutil);
+}
+
+.scoreboard p {
+    margin: 0;
+    font-size: 0.7rem;      /* Ligeramente más pequeño */
+    color: var(--texto-mutado);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.scoreboard span {
+    display: block;
+    font-size: 1.2rem;      /* Reducido de 1.6rem a 1.2rem */
+    font-weight: 600;
+    margin-top: 2px;
+    font-family: sans-serif; /* Cambiado de Times New Roman a sans-serif para un look limpio */
+}
+
+#score-correct { color: var(--verde-bosque); }
+#score-wrong { color: var(--rojo-error); }
+
+/* --- ANIMACIONES --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* --- NAVBAR ESTILIZADA --- */
+.navbar {
+    width: 100%;
+    max-width: 100%;
+    background-color: #105666;
+    border-bottom: 1px solid var(--borde-sutil);
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(47, 82, 51, 0.02);
+}
+
+/* Ajuste al body para que el contenido no quede tapado por la navbar fija */
+body {
+    padding-top: 90px !important; 
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.brand-logo {
+    background-color: #4a7c50;
+    color: white;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.brand-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: #ffffff;
+    letter-spacing: -0.3px;
+}
+
+.nav-status {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: fadeIn 0.3s ease;
+}
+
+#nav-current-deck {
+    font-size: 0.85rem;
+    background-color: var(--bg-principal);
+    color: var(--verde-bosque);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+#btn-reset-session {
+    background: none;
+    border: none;
+    color: var(--texto-mutado);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+#btn-reset-session:hover {
+    background-color: var(--bg-principal);
+    color: var(--rojo-error);
+    transform: rotate(-45deg);
+}
+/* --- VENTANA MODAL EMERGENTE --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 48, 33, 0.4); /* Fondo verde oscuro traslúcido */
+    backdrop-filter: blur(4px); /* Efecto difuminado moderno */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+    background-color: var(--card-frente);
+    border: 1px solid var(--borde-sutil);
+    border-radius: 20px;
+    padding: 30px;
+    width: 90%;
+    max-width: 340px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.modal-content h3 {
+    margin: 0 0 10px 0;
+    font-family: 'Times New Roman', Georgia, serif;
+    font-size: 1.4rem;
+    color: var(--verde-bosque);
+}
+
+.modal-content p {
+    font-size: 0.9rem;
+    color: var(--texto-mutado);
+    margin-bottom: 24px;
+}
+
+#modal-deck-name {
+    font-weight: bold;
+    color: var(--verde-bosque);
+}
+
+/* Contenedor de botones de cantidad */
+.modal-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.modal-options button {
+    padding: 14px;
+    background-color: var(--bg-principal);
+    color: var(--verde-bosque);
+    border: 1px solid var(--borde-sutil);
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.modal-options button:hover {
+    background-color: var(--verde-bosque);
+    color: white;
+    transform: scale(1.03);
+}
+
+.btn-close-modal {
+    background: none;
+    border: none;
+    color: var(--texto-mutado);
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.btn-close-modal:hover {
+    color: var(--rojo-error);
+}
+/* --- AJUSTES DEL MODAL EN PASOS --- */
+.modal-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--texto-mutado);
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.modal-select {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.95rem;
+    border: 1px solid rgba(47, 82, 51, 0.15);
+    background-color: var(--bg-principal);
+    color: var(--verde-bosque);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    outline: none;
+    font-family: inherit;
+}
+
+.btn-modal-next {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--verde-bosque);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+}
+
+.btn-modal-next:hover {
+    background-color: var(--verde-acento);
+}
+
+#btn-modal-back {
+    background: none;
+    border: none;
+    color: var(--texto-mutado);
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#btn-modal-back:hover {
+    color: var(--verde-bosque);
+}
+/* --- SISTEMA DE PESTAÑAS (MENU) --- */
+.tabs-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--borde-sutil);
+    padding-bottom: 10px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 8px 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--texto-mutado);
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.tab-btn:hover {
+    color: var(--verde-bosque);
+}
+
+.tab-btn.active {
+    color: var(--verde-bosque);
+    font-weight: 600;
+}
+
+/* Línea verde indicadora debajo de la pestaña activa */
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -11px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--verde-bosque);
+}
+
+/* Modificaciones específicas para la cuadrícula de desafíos */
+.challenge-grid {
+    grid-template-columns: 1fr; /* Ocupan todo el ancho para un look de "misiones" */
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.challenge-card:hover {
+    box-shadow: 0 16px 36px rgba(168, 67, 67, 0.06); /* Sutil aura rojiza al pasar el mouse */
+}
+
+/* Bordes laterales de colores diferentes para identificar la dificultad */
+.challenge-card.advanced::before { background-color: var(--verde-acento); }
+.challenge-card.pro::before { background-color: #d97706; } /* Color ámbar/pro */
+.challenge-card.ultra::before { background-color: var(--rojo-error); } /* Color peligro */
+/* --- PANTALLA DE RESULTADOS --- */
+/* --- PANTALLA DE RESULTADOS REPARADA --- */
+#results-screen {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.results-box {
+    width: 100%;
+    display: flex !important; /* Forzamos flexbox */
+    flex-direction: row !important; /* Horizontal */
+    justify-content: space-between !important; /* Espacio uniforme */
+    background-color: var(--card-frente);
+    border: 1px solid var(--borde-sutil);
+    border-radius: 20px;
+    padding: 20px 10px !important;
+    margin-bottom: 30px;
+    box-shadow: var(--sombra-premium);
+}
+
+.stat-group {
+    flex: 1; /* Cada columna ocupa el mismo ancho */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 0.65rem !important; /* Un poco más pequeño para que no se desborde */
+    font-weight: 800;
+    color: var(--verde-bosque);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.stat-sublabel {
+    font-size: 0.65rem !important;
+    color: var(--texto-mutado);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    font-size: 2.2rem !important;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.stat-value.correct { color: var(--verde-bosque); }
+.stat-value.wrong { color: var(--rojo-error); }
+
+/* Botones de acción final */
+.results-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.btn-results-primary {
+    width: 100%;
+    padding: 16px;
+    background-color: var(--verde-bosque);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-results-primary:hover {
+    background-color: var(--verde-acento);
+}
+
+.btn-results-secondary {
+    width: 100%;
+    padding: 16px;
+    background-color: transparent;
+    color: var(--verde-bosque);
+    border: 1px solid rgba(47, 82, 51, 0.2);
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-results-secondary:hover {
+    background-color: rgba(47, 82, 51, 0.04);
+}
+/* --- ENCABEZADOS EN FORMA DE CÁPSULA REDONDA --- */
+
+/* Centra el bloque del encabezado */
+.capsule-header {
+    text-align: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+/* La caja con punta redonda idéntica a tu imagen */
+.title-capsule {
+    display: inline-block; /* Ajusta la caja al tamaño del texto */
+    background-color: #105666; /* Color crema claro de fondo de la cápsula */
+    color: #ffffff; /* Tu verde bosque oscuro para las letras */
+    font-size: 1.5rem; /* Tamaño equilibrado y moderno */
+    font-weight: 600;
+    text-transform: uppercase; /* Todo en mayúsculas como en tu captura */
+    letter-spacing: 1px; /* Espaciado elegante entre letras */
+    
+    /* El secreto de las puntas totalmente redondeadas */
+    padding: 14px 40px; /* 14px arriba/abajo y 40px a los lados para dar forma de píldora */
+    border-radius: 50px; /* Curva perfecta en los extremos */
+    
+    /* Sutil sombra suave abajo para dar volumen */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); 
+    margin: 0 0 16px 0;
+}
+
+/* Ajuste del subtítulo que va abajo para que mantenga distancia */
+.menu-subtitle {
+    font-size: 0.9rem;
+    color: var(--texto-mutado);
+    margin: 0;
+}
+#display-pinyin {
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif !important;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--verde-bosque);
+    margin-bottom: 10px;
+}
+#display-significado {
+    font-family: inherit;
+    font-size: 1.1rem;
+    color: var(--texto-dark);
+    margin: 0;
+}
+.flashcard {
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+}
+.flashcard.flipped {
+    transform: rotateY(180deg);
+}
+.game-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Mantiene la tarjeta centrada */
+    align-items: auto; /*permite scroll si es necesario*/
+    padding-bottom: 20px;
+}
+
+
+@media screen and (max-height: 500px) {
+    .flashcard-container {
+        width: 100%;
+        max-width: 400px;
+        height: 150px; 
+        
+        perspective: 1000px;
+        
+
+        margin: 0 auto 10px auto; 
+    }
+
+}
+    
+    #display-hanzi {
+        font-size: 4.5rem !important; /* Texto un poco más pequeño en horizontal/teclado */
+    }
+
+
+.view-table {
+    display: flex;
+    flex-direction: column;
+    height: 100svh;
+    padding: 10px;
+}

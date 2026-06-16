@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../Pagina Chino"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Pagina Chino APP"
+	}
+}
