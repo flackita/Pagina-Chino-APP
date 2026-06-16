@@ -1,3 +1,14 @@
 [
-   
+   {
+      "palabra":"hola",
+      "significado":"saludo común en español"
+   },
+   {
+      "palabra":"adiós",
+      "significado":"despedida común en español"
+   },
+   {
+      "palabra":"gracias",
+      "significado":"expresión de agradecimiento"
+   }
 ]
