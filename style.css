@@ -788,11 +788,10 @@ body {
 
 .memorice-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
-    width: 95%;
     max-width: 1400px;
     margin: 20px auto;
+    justify-items: center;
 }
 
 .card {
@@ -809,6 +808,8 @@ body {
     cursor: pointer;
     font-size: 2.2rem;
     transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
 
 }
 
@@ -881,23 +882,20 @@ body {
     font-weight: bold;
     margin: 20px 0;
 }
-.grid-10 {
-    grid-template-columns: repeat(5, 1fr);
-}
 
-.grid-15 {
-    grid-template-columns: repeat(6, 1fr);
-}
+
 .grid-10{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:10px;
+     display: grid;
+    grid-template-columns: repeat(5, 140px);
+    justify-content: center;
+    gap: 10px;
 }
 
 .grid-15{
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    gap:10px;
+    display: grid;
+    grid-template-columns: repeat(6, 140px);
+    justify-content: center;
+    gap: 10px;
 }
 #step-mazo,
 #step-modo,
@@ -929,4 +927,16 @@ body {
 
 .card.error {
     animation: shake 0.25s ease;
+}
+.card::before {
+    content: "学";
+    position: absolute;
+    font-size: 5rem;
+    font-weight: 700;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    color: rgba(255,255,255,0.12);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
 }

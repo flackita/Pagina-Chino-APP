@@ -497,7 +497,7 @@ function prepararJuegoMemorice(nombreMazo, modo, numPares) {
                 : 'texto-pinyin';
 
         card.innerHTML = `
-            <span class="card-hidden">?</span>
+            <span class="card-hidden"></span>
             <span class="card-text ${claseTexto}" style="display:none">
                 ${par.texto}
             </span>
