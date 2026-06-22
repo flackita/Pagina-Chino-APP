@@ -1,0 +1,1241 @@
+[
+  {
+    "n": 1,
+    "h": "红酒",
+    "p": "hóng jiǔ",
+    "s": "Vino tinto",
+    "cat": "hsk1"
+  },
+  {
+    "n": 2,
+    "h": "绿茶",
+    "p": "lǜ chá",
+    "s": "Té verde",
+    "cat": "hsk1"
+  },
+  {
+    "n": 3,
+    "h": "黄桃",
+    "p": "huáng táo",
+    "s": "Durazno amarillo",
+    "cat": "hsk1"
+  },
+  {
+    "n": 4,
+    "h": "蓝天",
+    "p": "lán tiān",
+    "s": "Cielo azul",
+    "cat": "hsk1"
+  },
+  {
+    "n": 5,
+    "h": "白梨",
+    "p": "bái lí",
+    "s": "Pera blanca",
+    "cat": "hsk1"
+  },
+  {
+    "n": 6,
+    "h": "白酒",
+    "p": "bái jiǔ",
+    "s": "Licor blanco (baijiu)",
+    "cat": "hsk1"
+  },
+  {
+    "n": 7,
+    "h": "黑桃",
+    "p": "hēi táo",
+    "s": "Durazno negro",
+    "cat": "hsk1"
+  },
+  {
+    "n": 8,
+    "h": "这是一杯白酒",
+    "p": "zhè shì yī bēi bái jiǔ",
+    "s": "Esto es una copa de licor blanco",
+    "cat": "hsk1"
+  },
+  {
+    "n": 9,
+    "h": "那是两杯水",
+    "p": "nà shì liǎng bēi shuǐ",
+    "s": "Eso son dos vasos de agua",
+    "cat": "hsk1"
+  },
+  {
+    "n": 10,
+    "h": "这是三本书",
+    "p": "zhè shì sān běn shū",
+    "s": "Estos son tres libros",
+    "cat": "hsk1"
+  },
+  {
+    "n": 11,
+    "h": "那是四个男孩",
+    "p": "nà shì sì ge nán hái",
+    "s": "Esos son cuatro niños",
+    "cat": "hsk1"
+  },
+  {
+    "n": 12,
+    "h": "那是五个桃",
+    "p": "nà shì wǔ ge táo",
+    "s": "Esos son cinco duraznos",
+    "cat": "hsk1"
+  },
+  {
+    "n": 13,
+    "h": "这是六个黄桃",
+    "p": "zhè shì liù ge huáng táo",
+    "s": "Estos son seis duraznos amarillos",
+    "cat": "hsk1"
+  },
+  {
+    "n": 14,
+    "h": "一个女人在吃水果",
+    "p": "yī ge nǚ rén zài chī shuǐ guǒ",
+    "s": "Una mujer está comiendo fruta",
+    "cat": "hsk1"
+  },
+  {
+    "n": 15,
+    "h": "两个女孩在喝水",
+    "p": "liǎng ge nǚ hái zài hē shuǐ",
+    "s": "Dos niñas están bebiendo agua",
+    "cat": "hsk1"
+  },
+  {
+    "n": 16,
+    "h": "三个男孩在吃梨",
+    "p": "sān ge nán hái zài chī lí",
+    "s": "Tres niños están comiendo pera",
+    "cat": "hsk1"
+  },
+  {
+    "n": 17,
+    "h": "四个女人在喝绿茶",
+    "p": "sì ge nǚ rén zài hē lǜ chá",
+    "s": "Cuatro mujeres están bebiendo té verde",
+    "cat": "hsk1"
+  },
+  {
+    "n": 18,
+    "h": "五个男人在喝红酒",
+    "p": "wǔ ge nán rén zài hē hóng jiǔ",
+    "s": "Cinco hombres están bebiendo vino tinto",
+    "cat": "hsk1"
+  },
+  {
+    "n": 19,
+    "h": "六个人在看报纸",
+    "p": "liù ge rén zài kàn bào zhǐ",
+    "s": "Seis personas están leyendo el periódico",
+    "cat": "hsk1"
+  },
+  {
+    "n": 20,
+    "h": "我喜欢星期天",
+    "p": "wǒ xǐ huan xīng qī tiān",
+    "s": "Me gusta el domingo",
+    "cat": "hsk1"
+  },
+  {
+    "n": 21,
+    "h": "昨天是星期一",
+    "p": "zuó tiān shì xīng qī yī",
+    "s": "Ayer fue lunes",
+    "cat": "hsk1"
+  },
+  {
+    "n": 22,
+    "h": "明天是星期三",
+    "p": "míng tiān shì xīng qī sān",
+    "s": "Mañana es miércoles",
+    "cat": "hsk1"
+  },
+  {
+    "n": 23,
+    "h": "今天是星期二",
+    "p": "jīn tiān shì xīng qī èr",
+    "s": "Hoy es martes",
+    "cat": "hsk1"
+  },
+  {
+    "n": 24,
+    "h": "今天是星期五",
+    "p": "jīn tiān shì xīng qī wǔ",
+    "s": "Hoy es viernes",
+    "cat": "hsk1"
+  },
+  {
+    "n": 25,
+    "h": "明天是星期六",
+    "p": "míng tiān shì xīng qī liù",
+    "s": "Mañana es sábado",
+    "cat": "hsk1"
+  },
+  {
+    "n": 26,
+    "h": "苹果是绿色的",
+    "p": "píng guǒ shì lǜ sè de",
+    "s": "La manzana es verde",
+    "cat": "hsk1"
+  },
+  {
+    "n": 27,
+    "h": "芒果是黄色的",
+    "p": "máng guǒ shì huáng sè de",
+    "s": "El mango es amarillo",
+    "cat": "hsk1"
+  },
+  {
+    "n": 28,
+    "h": "木瓜是黄色的",
+    "p": "mù guā shì huáng sè de",
+    "s": "La papaya es amarilla",
+    "cat": "hsk1"
+  },
+  {
+    "n": 29,
+    "h": "西瓜是红色的",
+    "p": "xī guā shì hóng sè de",
+    "s": "La sandía es roja",
+    "cat": "hsk1"
+  },
+  {
+    "n": 30,
+    "h": "这个女孩在吃苹果",
+    "p": "zhè ge nǚ hái zài chī píng guǒ",
+    "s": "Esta niña está comiendo una manzana",
+    "cat": "hsk1"
+  },
+  {
+    "n": 31,
+    "h": "三个女人在吃木瓜",
+    "p": "sān ge nǚ rén zài chī mù guā",
+    "s": "Tres mujeres están comiendo papaya",
+    "cat": "hsk1"
+  },
+  {
+    "n": 32,
+    "h": "两个男孩在吃西瓜",
+    "p": "liǎng ge nán hái zài chī xī guā",
+    "s": "Dos niños están comiendo sandía",
+    "cat": "hsk1"
+  },
+  {
+    "n": 33,
+    "h": "一杯果汁",
+    "p": "yī bēi guǒ zhī",
+    "s": "Un vaso de jugo",
+    "cat": "hsk1"
+  },
+  {
+    "n": 34,
+    "h": "一杯牛奶",
+    "p": "yī bēi niú nǎi",
+    "s": "Un vaso de leche",
+    "cat": "hsk1"
+  },
+  {
+    "n": 35,
+    "h": "白色的牛奶",
+    "p": "bái sè de niú nǎi",
+    "s": "La leche blanca",
+    "cat": "hsk1"
+  },
+  {
+    "n": 36,
+    "h": "黑色的咖啡",
+    "p": "hēi sè de kā fēi",
+    "s": "El café negro",
+    "cat": "hsk1"
+  },
+  {
+    "n": 37,
+    "h": "我在喝一杯牛奶",
+    "p": "wǒ zài hē yī bēi niú nǎi",
+    "s": "Estoy bebiendo un vaso de leche",
+    "cat": "hsk1"
+  },
+  {
+    "n": 38,
+    "h": "他在喝一杯啤酒",
+    "p": "tā zài hē yī bēi pí jiǔ",
+    "s": "Él está bebiendo una copa de cerveza",
+    "cat": "hsk1"
+  },
+  {
+    "n": 39,
+    "h": "他在喝一杯咖啡",
+    "p": "tā zài hē yī bēi kā fēi",
+    "s": "Él está bebiendo una taza de café",
+    "cat": "hsk1"
+  },
+  {
+    "n": 40,
+    "h": "这个男人在喝一杯黑色的咖啡",
+    "p": "zhè ge nán rén zài hē yī bēi hēi sè de kā fēi",
+    "s": "Este hombre está bebiendo una taza de café negro",
+    "cat": "hsk1"
+  },
+  {
+    "n": 41,
+    "h": "那个女人在喝一杯红色的果汁",
+    "p": "nà ge nǚ rén zài hē yī bēi hóng sè de guǒ zhī",
+    "s": "Esa mujer está bebiendo un vaso de jugo rojo",
+    "cat": "hsk1"
+  },
+  {
+    "n": 42,
+    "h": "他们在吃菜",
+    "p": "tā men zài chī cài",
+    "s": "Ellos están comiendo verduras",
+    "cat": "hsk1"
+  },
+  {
+    "n": 43,
+    "h": "这个男人在吃饭",
+    "p": "zhè ge nán rén zài chī fàn",
+    "s": "Este hombre está comiendo",
+    "cat": "hsk1"
+  },
+  {
+    "n": 44,
+    "h": "我们在吃蛋",
+    "p": "wǒ men zài chī dàn",
+    "s": "Nosotros estamos comiendo huevo",
+    "cat": "hsk1"
+  },
+  {
+    "n": 45,
+    "h": "人们在吃饭",
+    "p": "rén men zài chī fàn",
+    "s": "La gente está comiendo",
+    "cat": "hsk1"
+  },
+  {
+    "n": 46,
+    "h": "女孩们在吃蛋",
+    "p": "nǚ hái men zài chī dàn",
+    "s": "Las niñas están comiendo huevo",
+    "cat": "hsk1"
+  },
+  {
+    "n": 47,
+    "h": "男孩们在吃肉",
+    "p": "nán hái men zài chī ròu",
+    "s": "Los niños están comiendo carne",
+    "cat": "hsk1"
+  },
+  {
+    "n": 48,
+    "h": "那个女人在吃肉",
+    "p": "nà ge nǚ rén zài chī ròu",
+    "s": "Esa mujer está comiendo carne",
+    "cat": "hsk1"
+  },
+  {
+    "n": 49,
+    "h": "这个女人在吃面条",
+    "p": "zhè ge nǚ rén zài chī miàn tiáo",
+    "s": "Esta mujer está comiendo fideos",
+    "cat": "hsk1"
+  },
+  {
+    "n": 50,
+    "h": "那个男孩也在吃面条",
+    "p": "nà ge nán hái yě zài chī miàn tiáo",
+    "s": "Ese niño también está comiendo fideos",
+    "cat": "hsk1"
+  },
+  {
+    "n": 51,
+    "h": "我们星期一吃面包",
+    "p": "wǒ men xīng qī yī chī miàn bāo",
+    "s": "Comemos pan el lunes",
+    "cat": "hsk1"
+  },
+  {
+    "n": 52,
+    "h": "我们星期六吃饺子",
+    "p": "wǒ men xīng qī liù chī jiǎo zi",
+    "s": "Comemos jiaozi el sábado",
+    "cat": "hsk1"
+  },
+  {
+    "n": 53,
+    "h": "我们星期五吃包子",
+    "p": "wǒ men xīng qī wǔ chī bāo zi",
+    "s": "Comemos baozi el viernes",
+    "cat": "hsk1"
+  },
+  {
+    "n": 54,
+    "h": "人们星期天吃饺子",
+    "p": "rén men xīng qī tiān chī jiǎo zi",
+    "s": "La gente come jiaozi el domingo",
+    "cat": "hsk1"
+  },
+  {
+    "n": 55,
+    "h": "我们星期二吃包子",
+    "p": "wǒ men xīng qī èr chī bāo zi",
+    "s": "Comemos baozi el martes",
+    "cat": "hsk1"
+  },
+  {
+    "n": 56,
+    "h": "他们星期一也吃面包",
+    "p": "tā men xīng qī yī yě chī miàn bāo",
+    "s": "Ellos también comen pan el lunes",
+    "cat": "hsk1"
+  },
+  {
+    "n": 57,
+    "h": "三个方形",
+    "p": "sān ge fāng xíng",
+    "s": "Tres cuadrados",
+    "cat": "hsk1"
+  },
+  {
+    "n": 58,
+    "h": "四个三角形",
+    "p": "sì ge sān jiǎo xíng",
+    "s": "Cuatro triángulos",
+    "cat": "hsk1"
+  },
+  {
+    "n": 59,
+    "h": "五个圆形",
+    "p": "wǔ ge yuán xíng",
+    "s": "Cinco círculos",
+    "cat": "hsk1"
+  },
+  {
+    "n": 60,
+    "h": "那个男孩在吃三角形的面包",
+    "p": "nà ge nán hái zài chī sān jiǎo xíng de miàn bāo",
+    "s": "Ese niño está comiendo pan triangular",
+    "cat": "hsk1"
+  },
+  {
+    "n": 61,
+    "h": "这是一本方形的书",
+    "p": "zhè shì yī běn fāng xíng de shū",
+    "s": "Este es un libro cuadrado",
+    "cat": "hsk1"
+  },
+  {
+    "n": 62,
+    "h": "那是一个圆形的苹果",
+    "p": "nà shì yī ge yuán xíng de píng guǒ",
+    "s": "Esa es una manzana redonda",
+    "cat": "hsk1"
+  },
+  {
+    "n": 63,
+    "h": "我们有一张圆形的桌子",
+    "p": "wǒ men yǒu yī zhāng yuán xíng de zhuō zi",
+    "s": "Tenemos una mesa redonda",
+    "cat": "hsk1"
+  },
+  {
+    "n": 64,
+    "h": "他们有两把方形的椅子",
+    "p": "tā men yǒu liǎng bǎ fāng xíng de yǐ zi",
+    "s": "Ellos tienen dos sillas cuadradas",
+    "cat": "hsk1"
+  },
+  {
+    "n": 65,
+    "h": "这个女孩有三个三角形的杯子",
+    "p": "zhè ge nǚ hái yǒu sān ge sān jiǎo xíng de bēi zi",
+    "s": "Esta niña tiene tres vasos triangulares",
+    "cat": "hsk1"
+  },
+  {
+    "n": 66,
+    "h": "那个女孩有四面圆形的镜子",
+    "p": "nà ge nǚ hái yǒu sì miàn yuán xíng de jìng zi",
+    "s": "Esa niña tiene cuatro espejos redondos",
+    "cat": "hsk1"
+  },
+  {
+    "n": 67,
+    "h": "我没有圆形的桌子",
+    "p": "wǒ méi yǒu yuán xíng de zhuō zi",
+    "s": "No tengo una mesa redonda",
+    "cat": "hsk1"
+  },
+  {
+    "n": 68,
+    "h": "他没有方形的椅子",
+    "p": "tā méi yǒu fāng xíng de yǐ zi",
+    "s": "Él no tiene una silla cuadrada",
+    "cat": "hsk1"
+  },
+  {
+    "n": 69,
+    "h": "那个女孩没有圆形的镜子",
+    "p": "nà ge nǚ hái méi yǒu yuán xíng de jìng zi",
+    "s": "Esa niña no tiene un espejo redondo",
+    "cat": "hsk1"
+  },
+  {
+    "n": 70,
+    "h": "下雪了",
+    "p": "xià xuě le",
+    "s": "Está nevando",
+    "cat": "hsk1"
+  },
+  {
+    "n": 71,
+    "h": "下雨了",
+    "p": "xià yǔ le",
+    "s": "Está lloviendo",
+    "cat": "hsk1"
+  },
+  {
+    "n": 72,
+    "h": "天阴了",
+    "p": "tiān yīn le",
+    "s": "El cielo se nubló",
+    "cat": "hsk1"
+  },
+  {
+    "n": 73,
+    "h": "天晴了",
+    "p": "tiān qíng le",
+    "s": "El cielo se despejó",
+    "cat": "hsk1"
+  },
+  {
+    "n": 74,
+    "h": "夏天热",
+    "p": "xià tiān rè",
+    "s": "El verano es caluroso",
+    "cat": "hsk1"
+  },
+  {
+    "n": 75,
+    "h": "冬天冷",
+    "p": "dōng tiān lěng",
+    "s": "El invierno es frío",
+    "cat": "hsk1"
+  },
+  {
+    "n": 76,
+    "h": "晴天热",
+    "p": "qíng tiān rè",
+    "s": "Los días despejados son calurosos",
+    "cat": "hsk1"
+  },
+  {
+    "n": 77,
+    "h": "雨天冷",
+    "p": "yǔ tiān lěng",
+    "s": "Los días lluviosos son fríos",
+    "cat": "hsk1"
+  },
+  {
+    "n": 78,
+    "h": "春天要来了",
+    "p": "chūn tiān yào lái le",
+    "s": "La primavera está por llegar",
+    "cat": "hsk1"
+  },
+  {
+    "n": 79,
+    "h": "夏天要来了",
+    "p": "xià tiān yào lái le",
+    "s": "El verano está por llegar",
+    "cat": "hsk1"
+  },
+  {
+    "n": 80,
+    "h": "冬天要来了",
+    "p": "dōng tiān yào lái le",
+    "s": "El invierno está por llegar",
+    "cat": "hsk1"
+  },
+  {
+    "n": 81,
+    "h": "秋天要来了",
+    "p": "qiū tiān yào lái le",
+    "s": "El otoño está por llegar",
+    "cat": "hsk1"
+  },
+  {
+    "n": 82,
+    "h": "月亮是白色的",
+    "p": "yuè liàng shì bái sè de",
+    "s": "La luna es blanca",
+    "cat": "hsk1"
+  },
+  {
+    "n": 83,
+    "h": "星星是黄色的",
+    "p": "xīng xīng shì huáng sè de",
+    "s": "Las estrellas son amarillas",
+    "cat": "hsk1"
+  },
+  {
+    "n": 84,
+    "h": "地球是蓝色的",
+    "p": "dì qiú shì lán sè de",
+    "s": "La Tierra es azul",
+    "cat": "hsk1"
+  },
+  {
+    "n": 85,
+    "h": "太阳是红色的",
+    "p": "tài yáng shì hóng sè de",
+    "s": "El sol es rojo",
+    "cat": "hsk1"
+  },
+  {
+    "n": 86,
+    "h": "地球是圆形的",
+    "p": "dì qiú shì yuán xíng de",
+    "s": "La Tierra es redonda",
+    "cat": "hsk1"
+  },
+  {
+    "n": 87,
+    "h": "太阳是圆形的",
+    "p": "tài yáng shì yuán xíng de",
+    "s": "El sol es redondo",
+    "cat": "hsk1"
+  },
+  {
+    "n": 88,
+    "h": "这不是苹果",
+    "p": "zhè bú shì píng guǒ",
+    "s": "Esto no es una manzana",
+    "cat": "hsk1"
+  },
+  {
+    "n": 89,
+    "h": "那不是西瓜",
+    "p": "nà bú shì xī guā",
+    "s": "Eso no es una sandía",
+    "cat": "hsk1"
+  },
+  {
+    "n": 90,
+    "h": "明天不是星期天",
+    "p": "míng tiān bú shì xīng qī tiān",
+    "s": "Mañana no es domingo",
+    "cat": "hsk1"
+  },
+  {
+    "n": 91,
+    "h": "太阳不是蓝色的",
+    "p": "tài yáng bú shì lán sè de",
+    "s": "El sol no es azul",
+    "cat": "hsk1"
+  },
+  {
+    "n": 92,
+    "h": "那张桌子不是圆形的",
+    "p": "nà zhāng zhuō zi bú shì yuán xíng de",
+    "s": "Esa mesa no es redonda",
+    "cat": "hsk1"
+  },
+  {
+    "n": 93,
+    "h": "夏天不冷",
+    "p": "xià tiān bù lěng",
+    "s": "El verano no es frío",
+    "cat": "hsk1"
+  },
+  {
+    "n": 94,
+    "h": "冬天不热",
+    "p": "dōng tiān bú rè",
+    "s": "El invierno no es caluroso",
+    "cat": "hsk1"
+  },
+  {
+    "n": 95,
+    "h": "夏天不下雪",
+    "p": "xià tiān bú xià xuě",
+    "s": "En verano no nieva",
+    "cat": "hsk1"
+  },
+  {
+    "n": 96,
+    "h": "明天不下雨",
+    "p": "míng tiān bú xià yǔ",
+    "s": "Mañana no lloverá",
+    "cat": "hsk1"
+  },
+  {
+    "n": 97,
+    "h": "男孩们不喝牛奶",
+    "p": "nán hái men bù hē niú nǎi",
+    "s": "Los niños no beben leche",
+    "cat": "hsk1"
+  },
+  {
+    "n": 98,
+    "h": "我们明天不吃饺子",
+    "p": "wǒ men míng tiān bù chī jiǎo zi",
+    "s": "Mañana no comeremos jiaozi",
+    "cat": "hsk1"
+  },
+  {
+    "n": 99,
+    "h": "我没有水",
+    "p": "wǒ méi yǒu shuǐ",
+    "s": "No tengo agua",
+    "cat": "hsk1"
+  },
+  {
+    "n": 100,
+    "h": "她没有书",
+    "p": "tā méi yǒu shū",
+    "s": "Ella no tiene libro",
+    "cat": "hsk1"
+  },
+  {
+    "n": 101,
+    "h": "我没有圆形的桌子",
+    "p": "wǒ méi yǒu yuán xíng de zhuō zi",
+    "s": "No tengo una mesa redonda",
+    "cat": "hsk1"
+  },
+  {
+    "n": 102,
+    "h": "他没有方形的椅子",
+    "p": "tā méi yǒu fāng xíng de yǐ zi",
+    "s": "Él no tiene una silla cuadrada",
+    "cat": "hsk1"
+  },
+  {
+    "n": 103,
+    "h": "昨天没有下雨",
+    "p": "zuó tiān méi yǒu xià yǔ",
+    "s": "Ayer no llovió",
+    "cat": "hsk1"
+  },
+  {
+    "n": 104,
+    "h": "我昨天没有喝酒",
+    "p": "wǒ zuó tiān méi yǒu hē jiǔ",
+    "s": "Ayer no bebí alcohol",
+    "cat": "hsk1"
+  },
+  {
+    "n": 105,
+    "h": "男孩们昨天没有游泳",
+    "p": "nán hái men zuó tiān méi yǒu yóu yǒng",
+    "s": "Los niños no nadaron ayer",
+    "cat": "hsk1"
+  },
+  {
+    "n": 106,
+    "h": "昨天这个男孩没有喝牛奶",
+    "p": "zuó tiān zhè ge nán hái méi yǒu hē niú nǎi",
+    "s": "Ayer este niño no bebió leche",
+    "cat": "hsk1"
+  },
+  {
+    "n": 107,
+    "h": "我昨天没有吃饺子",
+    "p": "wǒ zuó tiān méi yǒu chī jiǎo zi",
+    "s": "Ayer no comí jiaozi",
+    "cat": "hsk1"
+  },
+  {
+    "n": 108,
+    "h": "这是什么",
+    "p": "zhè shì shén me",
+    "s": "¿Qué es esto?",
+    "cat": "hsk1"
+  },
+  {
+    "n": 109,
+    "h": "那是什么",
+    "p": "nà shì shén me",
+    "s": "¿Qué es eso?",
+    "cat": "hsk1"
+  },
+  {
+    "n": 110,
+    "h": "你在吃什么",
+    "p": "nǐ zài chī shén me",
+    "s": "¿Qué estás comiendo?",
+    "cat": "hsk1"
+  },
+  {
+    "n": 111,
+    "h": "你在喝什么",
+    "p": "nǐ zài hē shén me",
+    "s": "¿Qué estás bebiendo?",
+    "cat": "hsk1"
+  },
+  {
+    "n": 112,
+    "h": "他在看什么",
+    "p": "tā zài kàn shén me",
+    "s": "¿Qué está viendo él?",
+    "cat": "hsk1"
+  },
+  {
+    "n": 113,
+    "h": "芒果是什么颜色的",
+    "p": "máng guǒ shì shén me yán sè de",
+    "s": "¿De qué color es el mango?",
+    "cat": "hsk1"
+  },
+  {
+    "n": 114,
+    "h": "芒果是黄色的",
+    "p": "máng guǒ shì huáng sè de",
+    "s": "El mango es amarillo",
+    "cat": "hsk1"
+  },
+  {
+    "n": 115,
+    "h": "雪是什么颜色的",
+    "p": "xuě shì shén me yán sè de",
+    "s": "¿De qué color es la nieve?",
+    "cat": "hsk1"
+  },
+  {
+    "n": 116,
+    "h": "你叫什么名字",
+    "p": "nǐ jiào shén me míng zi",
+    "s": "¿Cómo te llamas?",
+    "cat": "hsk1"
+  },
+  {
+    "n": 117,
+    "h": "她叫什么名字",
+    "p": "tā jiào shén me míng zi",
+    "s": "¿Cómo se llama ella?",
+    "cat": "hsk1"
+  },
+  {
+    "n": 118,
+    "h": "这是苹果吗",
+    "p": "zhè shì píng guǒ ma",
+    "s": "¿Esto es una manzana?",
+    "cat": "hsk1"
+  },
+  {
+    "n": 119,
+    "h": "这是七吗",
+    "p": "zhè shì qī ma",
+    "s": "¿Esto es el siete?",
+    "cat": "hsk1"
+  },
+  {
+    "n": 120,
+    "h": "女人们在喝咖啡吗",
+    "p": "nǚ rén men zài hē kā fēi ma",
+    "s": "¿Las mujeres están bebiendo café?",
+    "cat": "hsk1"
+  },
+  {
+    "n": 121,
+    "h": "你在吃饺子吗",
+    "p": "nǐ zài chī jiǎo zi ma",
+    "s": "¿Estás comiendo jiaozi?",
+    "cat": "hsk1"
+  },
+  {
+    "n": 122,
+    "h": "七月和八月是夏天",
+    "p": "qī yuè hé bā yuè shì xià tiān",
+    "s": "Julio y agosto son verano",
+    "cat": "hsk1"
+  },
+  {
+    "n": 123,
+    "h": "九月是秋天",
+    "p": "jiǔ yuè shì qiū tiān",
+    "s": "Septiembre es otoño",
+    "cat": "hsk1"
+  },
+  {
+    "n": 124,
+    "h": "十月和十一月不是春天",
+    "p": "shí yuè hé shí yī yuè bú shì chūn tiān",
+    "s": "Octubre y noviembre no son primavera",
+    "cat": "hsk1"
+  },
+  {
+    "n": 125,
+    "h": "十二月是冬天",
+    "p": "shí èr yuè shì dōng tiān",
+    "s": "Diciembre es invierno",
+    "cat": "hsk1"
+  },
+  {
+    "n": 126,
+    "h": "这个男孩今年七岁",
+    "p": "zhè ge nán hái jīn nián qī suì",
+    "s": "Este niño tiene siete años este año",
+    "cat": "hsk1"
+  },
+  {
+    "n": 127,
+    "h": "那个女孩明年十二岁",
+    "p": "nà ge nǚ hái míng nián shí èr suì",
+    "s": "Esa niña tendrá doce años el próximo año",
+    "cat": "hsk1"
+  },
+  {
+    "n": 128,
+    "h": "我今年六月二十岁",
+    "p": "wǒ jīn nián liù yuè èr shí suì",
+    "s": "Cumplo veinte años en junio de este año",
+    "cat": "hsk1"
+  },
+  {
+    "n": 129,
+    "h": "他明年五月三十岁",
+    "p": "tā míng nián wǔ yuè sān shí suì",
+    "s": "Él cumplirá treinta años en mayo del próximo año",
+    "cat": "hsk1"
+  },
+  {
+    "n": 130,
+    "h": "去年十一月下雪了吗",
+    "p": "qù nián shí yī yuè xià xuě le ma",
+    "s": "¿Nevó en noviembre del año pasado?",
+    "cat": "hsk1"
+  },
+  {
+    "n": 131,
+    "h": "早上好",
+    "p": "zǎo shàng hǎo",
+    "s": "Buenos días",
+    "cat": "hsk1"
+  },
+  {
+    "n": 132,
+    "h": "中午好",
+    "p": "zhōng wǔ hǎo",
+    "s": "Buenas tardes (al mediodía)",
+    "cat": "hsk1"
+  },
+  {
+    "n": 133,
+    "h": "这个男人在买苹果和芒果",
+    "p": "zhè ge nán rén zài mǎi píng guǒ hé máng guǒ",
+    "s": "Este hombre está comprando manzanas y mangos",
+    "cat": "hsk1"
+  },
+  {
+    "n": 134,
+    "h": "我明天买水果",
+    "p": "wǒ míng tiān mǎi shuǐ guǒ",
+    "s": "Mañana compraré fruta",
+    "cat": "hsk1"
+  },
+  {
+    "n": 135,
+    "h": "那个女人在买水果",
+    "p": "nà ge nǚ rén zài mǎi shuǐ guǒ",
+    "s": "Esa mujer está comprando fruta",
+    "cat": "hsk1"
+  },
+  {
+    "n": 136,
+    "h": "我昨天买了草莓和香蕉",
+    "p": "wǒ zuó tiān mǎi le cǎo méi hé xiāng jiāo",
+    "s": "Ayer compré fresas y plátanos",
+    "cat": "hsk1"
+  },
+  {
+    "n": 137,
+    "h": "我早上买了橙子苹果芒果等水果",
+    "p": "wǒ zǎo shàng mǎi le chéng zi píng guǒ máng guǒ děng shuǐ guǒ",
+    "s": "Por la mañana compré naranjas, manzanas, mangos y otras frutas",
+    "cat": "hsk1"
+  },
+  {
+    "n": 138,
+    "h": "他晚上卖了西瓜草莓樱桃等水果",
+    "p": "tā wǎn shàng mài le xī guā cǎo méi yīng táo děng shuǐ guǒ",
+    "s": "Por la noche él vendió sandías, fresas, cerezas y otras frutas",
+    "cat": "hsk1"
+  },
+  {
+    "n": 139,
+    "h": "我今天买了樱桃和西瓜",
+    "p": "wǒ jīn tiān mǎi le yīng táo hé xī guā",
+    "s": "Hoy compré cerezas y sandía",
+    "cat": "hsk1"
+  },
+  {
+    "n": 140,
+    "h": "男孩们早上吃早饭了",
+    "p": "nán hái men zǎo shàng chī zǎo fàn le",
+    "s": "Los niños desayunaron por la mañana",
+    "cat": "hsk1"
+  },
+  {
+    "n": 141,
+    "h": "女孩们中午吃午饭了",
+    "p": "nǚ hái men zhōng wǔ chī wǔ fàn le",
+    "s": "Las niñas almorzaron al mediodía",
+    "cat": "hsk1"
+  },
+  {
+    "n": 142,
+    "h": "你吃早饭了吗",
+    "p": "nǐ chī zǎo fàn le ma",
+    "s": "¿Ya desayunaste?",
+    "cat": "hsk1"
+  },
+  {
+    "n": 143,
+    "h": "我没有吃早饭",
+    "p": "wǒ méi yǒu chī zǎo fàn",
+    "s": "No he desayunado",
+    "cat": "hsk1"
+  },
+  {
+    "n": 144,
+    "h": "你们昨天吃早饭了吗",
+    "p": "nǐ men zuó tiān chī zǎo fàn le ma",
+    "s": "¿Desayunaron ayer?",
+    "cat": "hsk1"
+  },
+  {
+    "n": 145,
+    "h": "我们昨天没有吃午饭",
+    "p": "wǒ men zuó tiān méi yǒu chī wǔ fàn",
+    "s": "Ayer no almorzamos",
+    "cat": "hsk1"
+  },
+  {
+    "n": 146,
+    "h": "男人们晚上吃晚饭了",
+    "p": "nán rén men wǎn shàng chī wǎn fàn le",
+    "s": "Los hombres cenaron por la noche",
+    "cat": "hsk1"
+  },
+  {
+    "n": 147,
+    "h": "我们刚才游泳了",
+    "p": "wǒ men gāng cái yóu yǒng le",
+    "s": "Hace un momento estuvimos nadando",
+    "cat": "hsk1"
+  },
+  {
+    "n": 148,
+    "h": "他们刚才洗车了",
+    "p": "tā men gāng cái xǐ chē le",
+    "s": "Hace un momento ellos lavaron el auto",
+    "cat": "hsk1"
+  },
+  {
+    "n": 149,
+    "h": "他刚才骑自行车了",
+    "p": "tā gāng cái qí zì xíng chē le",
+    "s": "Hace un momento él andaba en bicicleta",
+    "cat": "hsk1"
+  },
+  {
+    "n": 150,
+    "h": "我刚才没有喝水",
+    "p": "wǒ gāng cái méi yǒu hē shuǐ",
+    "s": "Hace un momento no bebí agua",
+    "cat": "hsk1"
+  },
+  {
+    "n": 151,
+    "h": "我昨天第一次游泳",
+    "p": "wǒ zuó tiān dì yī cì yóu yǒng",
+    "s": "Ayer nadé por primera vez",
+    "cat": "hsk1"
+  },
+  {
+    "n": 152,
+    "h": "他昨天第一次喝酒",
+    "p": "tā zuó tiān dì yī cì hē jiǔ",
+    "s": "Ayer él bebió alcohol por primera vez",
+    "cat": "hsk1"
+  },
+  {
+    "n": 153,
+    "h": "这是我的第二辆自行车",
+    "p": "zhè shì wǒ de dì èr liàng zì xíng chē",
+    "s": "Esta es mi segunda bicicleta",
+    "cat": "hsk1"
+  },
+  {
+    "n": 154,
+    "h": "这是今天的第三杯咖啡",
+    "p": "zhè shì jīn tiān de dì sān bēi kā fēi",
+    "s": "Este es el tercer café de hoy",
+    "cat": "hsk1"
+  },
+  {
+    "n": 155,
+    "h": "星期天是一星期的第七天",
+    "p": "xīng qī tiān shì yì xīng qī de dì qī tiān",
+    "s": "El domingo es el séptimo día de la semana",
+    "cat": "hsk1"
+  },
+  {
+    "n": 156,
+    "h": "我今年第一次吃西瓜",
+    "p": "wǒ jīn nián dì yī cì chī xī guā",
+    "s": "Este año comí sandía por primera vez",
+    "cat": "hsk1"
+  },
+  {
+    "n": 157,
+    "h": "这是我的第三本书",
+    "p": "zhè shì wǒ de dì sān běn shū",
+    "s": "Este es mi tercer libro",
+    "cat": "hsk1"
+  },
+  {
+    "n": 158,
+    "h": "二百四十二",
+    "p": "èr bǎi sì shí èr",
+    "s": "Doscientos cuarenta y dos",
+    "cat": "hsk1"
+  },
+  {
+    "n": 159,
+    "h": "六千五百",
+    "p": "liù qiān wǔ bǎi",
+    "s": "Seis mil quinientos",
+    "cat": "hsk1"
+  },
+  {
+    "n": 160,
+    "h": "五万",
+    "p": "wǔ wàn",
+    "s": "Cincuenta mil",
+    "cat": "hsk1"
+  },
+  {
+    "n": 161,
+    "h": "七百万",
+    "p": "qī bǎi wàn",
+    "s": "Siete millones",
+    "cat": "hsk1"
+  },
+  {
+    "n": 162,
+    "h": "三百零二万",
+    "p": "sān bǎi líng èr wàn",
+    "s": "Tres millones veinte mil",
+    "cat": "hsk1"
+  },
+  {
+    "n": 163,
+    "h": "一亿",
+    "p": "yí yì",
+    "s": "Cien millones",
+    "cat": "hsk1"
+  },
+  {
+    "n": 164,
+    "h": "四万零八百九十一",
+    "p": "sì wàn líng bā bǎi jiǔ shí yī",
+    "s": "Cuarenta mil ochocientos noventa y uno",
+    "cat": "hsk1"
+  },
+  {
+    "n": 165,
+    "h": "一年有十二个月",
+    "p": "yì nián yǒu shí èr ge yuè",
+    "s": "Un año tiene doce meses",
+    "cat": "hsk1"
+  },
+  {
+    "n": 166,
+    "h": "一年有三百六十五天",
+    "p": "yì nián yǒu sān bǎi liù shí wǔ tiān",
+    "s": "Un año tiene trescientos sesenta y cinco días",
+    "cat": "hsk1"
+  },
+  {
+    "n": 167,
+    "h": "我早上八点起床",
+    "p": "wǒ zǎo shàng bā diǎn qǐ chuáng",
+    "s": "Me levanto a las ocho de la mañana",
+    "cat": "hsk1"
+  },
+  {
+    "n": 168,
+    "h": "我早上九点半上班",
+    "p": "wǒ zǎo shàng jiǔ diǎn bàn shàng bān",
+    "s": "Empiezo a trabajar a las nueve y media de la mañana",
+    "cat": "hsk1"
+  },
+  {
+    "n": 169,
+    "h": "我下午六点半下班",
+    "p": "wǒ xià wǔ liù diǎn bàn xià bān",
+    "s": "Termino de trabajar a las seis y media de la tarde",
+    "cat": "hsk1"
+  },
+  {
+    "n": 170,
+    "h": "我有半个西瓜",
+    "p": "wǒ yǒu bàn ge xī guā",
+    "s": "Tengo media sandía",
+    "cat": "hsk1"
+  },
+  {
+    "n": 171,
+    "h": "半年是六个月",
+    "p": "bàn nián shì liù ge yuè",
+    "s": "Medio año son seis meses",
+    "cat": "hsk1"
+  },
+  {
+    "n": 172,
+    "h": "他吃了半个苹果",
+    "p": "tā chī le bàn ge píng guǒ",
+    "s": "Él se comió media manzana",
+    "cat": "hsk1"
+  },
+  {
+    "n": 173,
+    "h": "这个女孩这个月五岁半",
+    "p": "zhè ge nǚ hái zhè ge yuè wǔ suì bàn",
+    "s": "Este mes esta niña cumple cinco años y medio",
+    "cat": "hsk1"
+  },
+  {
+    "n": 174,
+    "h": "你有空吗",
+    "p": "nǐ yǒu kòng ma",
+    "s": "¿Tienes tiempo libre?",
+    "cat": "hsk1"
+  },
+  {
+    "n": 175,
+    "h": "那只猫很胖",
+    "p": "nà zhī māo hěn pàng",
+    "s": "Ese gato está muy gordo",
+    "cat": "hsk1"
+  },
+  {
+    "n": 176,
+    "h": "这只猫非常小",
+    "p": "zhè zhī māo fēicháng xiǎo",
+    "s": "Este gato es muy pequeño",
+    "cat": "hsk1"
+  },
+  {
+    "n": 177,
+    "h": "第一下",
+    "p": "dì yī xià",
+    "s": "La primera vez",
+    "cat": "hsk1"
+  }
+]

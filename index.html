@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aprende Chino</title>
     <link rel="stylesheet" href="style.css">
-    
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1b4332">
 </head>
@@ -15,71 +14,43 @@
             <span class="brand-logo">学</span>
             <span class="brand-title">CopyHanzi</span>
         </div>
-
         <div class="nav-menu" id="nav-game-menu">
             <button class="nav-btn" onclick="cambiarModo('flashcards')">Flashcards</button>
             <button class="nav-btn" onclick="cambiarModo('memorice')">Memorice</button>
+            <button class="nav-btn" onclick="cambiarModo('frases')">Frases</button>
         </div>
     </nav>
 
-    <section id="menu-screen" class="screen-animation" >
+    <!-- ══════════════ MENÚ PRINCIPAL ══════════════ -->
+    <section id="menu-screen" class="screen-animation">
         <header class="capsule-header">
             <h1 class="title-capsule">Ruta de aprendizaje</h1>
             <p class="menu-subtitle">Selecciona tu método de entrenamiento</p>
         </header>
-        
         <div class="tabs-container">
             <button id="tab-niveles" class="tab-btn active" onclick="cambiarPestaña('niveles')">Por Niveles</button>
             <button id="tab-prueba" class="tab-btn" onclick="cambiarPestaña('prueba')">Ponte a Prueba</button>
         </div>
-        
         <div id="content-niveles" class="tab-content">
             <div class="deck-grid">
-                <button class="deck-card" onclick="seleccionarMazo('hsk1')">
-                    <span class="deck-title">HSK 1</span>
-                    <span class="deck-desc">Nivel Inicial</span>
-                </button>
-                <button class="deck-card" onclick="seleccionarMazo('hsk2')">
-                    <span class="deck-title">HSK 2</span>
-                    <span class="deck-desc">Nivel Elemental</span>
-                </button>
-                <button class="deck-card" onclick="seleccionarMazo('hsk3')">
-                    <span class="deck-title">HSK 3</span>
-                    <span class="deck-desc">Nivel Intermedio Bajo</span>
-                </button>
-                <button class="deck-card" onclick="seleccionarMazo('hsk4')">
-                    <span class="deck-title">HSK 4</span>
-                    <span class="deck-desc">Nivel Intermedio</span>
-                </button>
-                <button class="deck-card" onclick="seleccionarMazo('hsk5')">
-                    <span class="deck-title">HSK 5</span>
-                    <span class="deck-desc">Nivel Avanzado</span>
-                </button>
-                <button class="deck-card" onclick="seleccionarMazo('hsk6')">
-                    <span class="deck-title">HSK 6</span>
-                    <span class="deck-desc">Nivel Superior</span>
-                </button>
+                <button class="deck-card" onclick="seleccionarMazo('hsk1')"><span class="deck-title">HSK 1</span><span class="deck-desc">Nivel Inicial</span></button>
+                <button class="deck-card" onclick="seleccionarMazo('hsk2')"><span class="deck-title">HSK 2</span><span class="deck-desc">Nivel Elemental</span></button>
+                <button class="deck-card" onclick="seleccionarMazo('hsk3')"><span class="deck-title">HSK 3</span><span class="deck-desc">Nivel Intermedio Bajo</span></button>
+                <button class="deck-card" onclick="seleccionarMazo('hsk4')"><span class="deck-title">HSK 4</span><span class="deck-desc">Nivel Intermedio</span></button>
+                <button class="deck-card" onclick="seleccionarMazo('hsk5')"><span class="deck-title">HSK 5</span><span class="deck-desc">Nivel Avanzado</span></button>
+                <button class="deck-card" onclick="seleccionarMazo('hsk6')"><span class="deck-title">HSK 6</span><span class="deck-desc">Nivel Superior</span></button>
             </div>
         </div>
-
         <div id="content-prueba" class="tab-content" style="display: none;">
             <div class="deck-grid challenge-grid">
-                <button class="deck-card challenge-card advanced" onclick="seleccionarMazoDesafio('avanzado')">
-                    <span class="deck-title">Modo Advanced</span>
-                    <span class="deck-desc">Mezcla aleatoria de HSK 1, HSK 2 y HSK 3</span>
-                </button>
-                <button class="deck-card challenge-card pro" onclick="seleccionarMazoDesafio('pro')">
-                    <span class="deck-title">Modo Pro</span>
-                    <span class="deck-desc">Desafío global de HSK 1 al HSK 5</span>
-                </button>
-                <button class="deck-card challenge-card ultra" onclick="seleccionarMazoDesafio('ultra')">
-                    <span class="deck-title">Modo Ultra</span>
-                    <span class="deck-desc">¡Todo el diccionario! Todos los niveles mezclados</span>
-                </button>
+                <button class="deck-card challenge-card advanced" onclick="seleccionarMazoDesafio('avanzado')"><span class="deck-title">Modo Advanced</span><span class="deck-desc">Mezcla aleatoria de HSK 1, HSK 2 y HSK 3</span></button>
+                <button class="deck-card challenge-card pro" onclick="seleccionarMazoDesafio('pro')"><span class="deck-title">Modo Pro</span><span class="deck-desc">Desafío global de HSK 1 al HSK 5</span></button>
+                <button class="deck-card challenge-card ultra" onclick="seleccionarMazoDesafio('ultra')"><span class="deck-title">Modo Ultra</span><span class="deck-desc">¡Todo el diccionario! Todos los niveles mezclados</span></button>
             </div>
         </div>
     </section>
 
+    <!-- ══════════════ PANTALLA DE ESTUDIO (FLASHCARDS) ══════════════ -->
     <section id="study-screen" class="view-table" style="display: none;">
         <header class="study-header">
             <button id="btn-back" onclick="regresarAlMenu()">← Volver al Archivo</button>
@@ -91,9 +62,9 @@
             </div>
             <div class="flashcard-container">
                 <div class="flashcard" id="flashcard" onclick="interactuarTarjeta()">
-                    <div class="card-face card-front"> 
+                    <div class="card-face card-front">
                         <span id="display-hanzi">...</span>
-                    </div>                   
+                    </div>
                     <div class="card-face card-back" id="card-back-face">
                         <h2 id="display-pinyin">Pīnyīn</h2>
                         <p id="display-significado">Significado</p>
@@ -101,15 +72,15 @@
                 </div>
             </div>
             <div class="controls">
-                <input type="text" id="user-input" oninput="monitorearEscritura()" placeholder="Activa tu teclado chino y escribe..." autocomplete="off" autocorrect="off" 
-       autocapitalize="off" spellcheck="false">
+                <input type="text" id="user-input" oninput="monitorearEscritura()" placeholder="Activa tu teclado chino y escribe..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
                 <div class="button-group">
                     <button id="btn-skip" onclick="saltarTarjeta()" style="display: none;">Saltar palabra</button>
                 </div>
             </div>
-            
         </main>
     </section>
+
+    <!-- ══════════════ PANTALLA DE RESULTADOS ══════════════ -->
     <section id="results-screen" class="view-results" style="display: none;">
         <header class="capsule-header">
             <h2 class="title-capsule">Sesión Completada</h2>
@@ -120,7 +91,7 @@
                 <div class="stat-label">DOMINADAS</div>
                 <div class="stat-sublabel">A LA PRIMERA</div>
                 <div id="res-correctas" class="stat-value correct">4</div>
-            </div>            
+            </div>
             <div class="stat-group">
                 <div class="stat-label">PALABRAS</div>
                 <div class="stat-sublabel">POR REPASAR</div>
@@ -129,93 +100,196 @@
         </div>
         <div class="results-actions">
             <button id="btn-retry-wrongs" class="btn-results-primary" onclick="repasarSoloMalas()">Repasar solo las malas</button>
+            <button id="btn-cuaderno" class="btn-results-secondary btn-cuaderno" onclick="abrirCuadernoRepaso()" style="display:none;">📖 Cuaderno de repaso</button>
             <button class="btn-results-secondary" onclick="regresarAlMenuCompleto()">Volver a la Biblioteca</button>
         </div>
     </section>
 
+    <!-- ══════════════ MEMORICE ══════════════ -->
     <section id="memorice-screen" class="screen-animation" style="display: none; padding: 20px;">
-    <div id="step-mazo">
-        <header class="capsule-header">
-        <h2 class="title-capsule">Elige el mazo</h2>
-        <p class="menu-subtitle">
-            Selecciona el nivel para comenzar
-        </p>
-    </header>
-
-        <div class="deck-grid">
-            <button class="deck-card" onclick="elegirMazo('hsk1')">
-                <span class="deck-title">HSK 1</span>
-                <span class="deck-desc">Nivel Inicial</span>
-            </button>
-            <button class="deck-card" onclick="elegirMazo('hsk2')">
-                <span class="deck-title">HSK 2</span>
-                <span class="deck-desc">Nivel Elemental</span>
-            </button>
-            <button class="deck-card" onclick="elegirMazo('hsk3')">
-                <span class="deck-title">HSK 3</span>
-                <span class="deck-desc">Nivel Intermedio Bajo</span>
-            </button>
-            <button class="deck-card" onclick="elegirMazo('hsk4')">
-                <span class="deck-title">HSK 4</span>
-                <span class="deck-desc">Nivel Intermedio</span>
-            </button>
-            <button class="deck-card" onclick="elegirMazo('hsk5')">
-                <span class="deck-title">HSK 5</span>
-                <span class="deck-desc">Nivel Avanzado</span>
-            </button>
-            <button class="deck-card" onclick="elegirMazo('hsk6')">
-                <span class="deck-title">HSK 6</span>
-                <span class="deck-desc">Nivel Superior</span>
-            </button>
-            
+        <div id="memorice-game" style="display: none;">
+            <div id="memorice-stats">
+                ⏱️ <span id="timer">00:00</span>
             </div>
-    </div>
+            <div id="grid-container" class="memorice-grid"></div>
+        </div>
+    </section>
 
-    <div id="step-modo" style="display: none;">
-        <h2 class="title-capsule">Elige el modo</h2>
-        <div class="deck-grid">
-            <button class="deck-card" onclick="elegirModo('h-h')">
-                <span class="deck-title" >Hanzi - Hanzi</span>
-            </button>
-            <button class="deck-card" onclick="elegirModo('h-p')">
-                <span class="deck-title">Hanzi - Pinyin</span>
-            </button>
+    <!-- ══════════════ FRASES ══════════════ -->
+    <section id="frases-screen" class="screen-animation" style="display:none;">
+        <header class="study-header">
+            <button onclick="salirDeFrases()">← Volver</button>
+        </header>
+        <div id="frases-step-mazo">
+            <header class="capsule-header">
+                <h2 class="title-capsule">Elige el mazo</h2>
+                <p class="menu-subtitle">Selecciona el nivel de frases</p>
+            </header>
+            <div id="frases-deck-grid" class="deck-grid"></div>
+        </div>
+        <main class="game-container" id="frases-game-container" style="display:none;">
+            <div class="scoreboard">
+                <p>Correctas: <span id="frases-correct">0</span></p>
+                <p>Incorrectas: <span id="frases-wrong">0</span></p>
+            </div>
+            <div class="sentence-box">
+                <span id="frase-numero" class="frase-numero-tag"></span>
+                <p id="display-frase">...</p>
+            </div>
+            <div id="sentence-hint" style="display:none;">
+                <p id="display-frase-pinyin"></p>
+                <p id="display-frase-significado"></p>
+            </div>
+            <input type="text" id="frase-input" oninput="monitorearEscrituraFrase()" placeholder="Escribe la frase..." autocomplete="off" autocorrect="off" spellcheck="false">
+            <div class="button-group">
+                <button onclick="mostrarPistaFrase()">Pista</button>
+                <button onclick="saltarFrase()">Saltar</button>
+            </div>
+        </main>
+    </section>
+
+    <!-- ══════════════ CUADERNO DE REPASO ══════════════ -->
+    <section id="cuaderno-screen" class="screen-animation" style="display:none;">
+        <header class="study-header">
+            <button onclick="cerrarCuaderno()">← Volver a resultados</button>
+        </header>
+        <div id="cuaderno-container">
+            <!-- Sección 1: Significado -->
+            <div id="cuaderno-seccion-1" class="cuaderno-seccion" style="display:none;">
+                <div class="cuaderno-progreso">
+                    <span class="cuaderno-etapa-label">Sección 1 de 3</span>
+                    <span class="cuaderno-etapa-nombre">📖 Significado → ¿Qué hanzi es?</span>
+                    <div class="cuaderno-barra-outer"><div id="barra-s1" class="cuaderno-barra-inner"></div></div>
+                </div>
+                <div class="cuaderno-hoja">
+                    <div class="cuaderno-pregunta-label">¿Cuál es el hanzi?</div>
+                    <div id="s1-significado" class="cuaderno-significado-big"></div>
+                    <div id="s1-hint" class="cuaderno-hint" style="display:none;">
+                        <div id="s1-pinyin-hint" class="cuaderno-pinyin-small"></div>
+                    </div>
+                    <div id="s1-respuesta-reveal" class="cuaderno-hanzi-reveal" style="display:none;">
+                        <div id="s1-hanzi-reveal"></div>
+                        <div id="s1-pinyin-reveal" class="cuaderno-pinyin-reveal"></div>
+                    </div>
+                    <div class="cuaderno-input-area">
+                        <input type="text" id="s1-input" class="cuaderno-input" placeholder="Escribe el hanzi..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" oninput="verificarCuaderno(1)">
+                    </div>
+                    <div class="cuaderno-botones">
+                        <button class="cuaderno-btn-pista" onclick="pistaCuaderno(1)">Pista</button>
+                        <button class="cuaderno-btn-saltar" onclick="saltarCuaderno(1)">Saltar →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 2: Pinyin -->
+            <div id="cuaderno-seccion-2" class="cuaderno-seccion" style="display:none;">
+                <div class="cuaderno-progreso">
+                    <span class="cuaderno-etapa-label">Sección 2 de 3</span>
+                    <span class="cuaderno-etapa-nombre">🔤 Pinyin → ¿Qué hanzi es?</span>
+                    <div class="cuaderno-barra-outer"><div id="barra-s2" class="cuaderno-barra-inner"></div></div>
+                </div>
+                <div class="cuaderno-hoja">
+                    <div class="cuaderno-pregunta-label">¿Cuál es el hanzi?</div>
+                    <div id="s2-pinyin" class="cuaderno-pinyin-big"></div>
+                    <div id="s2-hint" class="cuaderno-hint" style="display:none;">
+                        <div id="s2-significado-hint" class="cuaderno-significado-small"></div>
+                    </div>
+                    <div id="s2-respuesta-reveal" class="cuaderno-hanzi-reveal" style="display:none;">
+                        <div id="s2-hanzi-reveal"></div>
+                        <div id="s2-sig-reveal" class="cuaderno-pinyin-reveal"></div>
+                    </div>
+                    <div class="cuaderno-input-area">
+                        <input type="text" id="s2-input" class="cuaderno-input" placeholder="Escribe el hanzi..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" oninput="verificarCuaderno(2)">
+                    </div>
+                    <div class="cuaderno-botones">
+                        <button class="cuaderno-btn-pista" onclick="pistaCuaderno(2)">Pista</button>
+                        <button class="cuaderno-btn-saltar" onclick="saltarCuaderno(2)">Saltar →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 3: Hanzi → escribir pinyin -->
+            <div id="cuaderno-seccion-3" class="cuaderno-seccion" style="display:none;">
+                <div class="cuaderno-progreso">
+                    <span class="cuaderno-etapa-label">Sección 3 de 3</span>
+                    <span class="cuaderno-etapa-nombre">汉字 → ¿Cómo se lee?</span>
+                    <div class="cuaderno-barra-outer"><div id="barra-s3" class="cuaderno-barra-inner"></div></div>
+                </div>
+                <div class="cuaderno-hoja">
+                    <div class="cuaderno-pregunta-label">¿Cuál es el pinyin?</div>
+                    <div id="s3-hanzi" class="cuaderno-hanzi-big"></div>
+                    <div id="s3-hint" class="cuaderno-hint" style="display:none;">
+                        <div id="s3-sig-hint" class="cuaderno-significado-small"></div>
+                    </div>
+                    <div id="s3-respuesta-reveal" class="cuaderno-hanzi-reveal" style="display:none;">
+                        <div id="s3-pinyin-reveal" class="cuaderno-pinyin-reveal"></div>
+                        <div id="s3-sig-reveal" class="cuaderno-significado-small" style="margin-top:6px;"></div>
+                    </div>
+                    <div class="cuaderno-input-area">
+                        <input type="text" id="s3-input" class="cuaderno-input" placeholder="Escribe el pinyin..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" oninput="verificarCuaderno(3)">
+                    </div>
+                    <div class="cuaderno-botones">
+                        <button class="cuaderno-btn-pista" onclick="pistaCuaderno(3)">Pista</button>
+                        <button class="cuaderno-btn-saltar" onclick="saltarCuaderno(3)">Saltar →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fin del cuaderno -->
+            <div id="cuaderno-fin" class="cuaderno-seccion" style="display:none;">
+                <div class="cuaderno-hoja cuaderno-fin-hoja">
+                    <div class="cuaderno-fin-emoji">🎉</div>
+                    <h2 class="cuaderno-fin-titulo">¡Cuaderno completado!</h2>
+                    <p class="cuaderno-fin-desc">Repasaste las 3 secciones de todas tus palabras pendientes.</p>
+                    <button class="btn-results-primary" onclick="cerrarCuaderno()">Volver a resultados</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════ MODAL: CONFIGURAR MEMORICE ══════════════ -->
+    <div id="memorice-config-modal" class="modal-overlay" style="display:none;">
+        <div class="modal-content">
+            <h3>Configurar Memorice</h3>
+
+            <label class="modal-label">Nivel:</label>
+            <div class="modal-options modal-options-grid">
+                <button class="modal-opt-btn" onclick="selModalMazo('hsk1')">HSK 1</button>
+                <button class="modal-opt-btn" onclick="selModalMazo('hsk2')">HSK 2</button>
+                <button class="modal-opt-btn" onclick="selModalMazo('hsk3')">HSK 3</button>
+                <button class="modal-opt-btn" onclick="selModalMazo('hsk4')">HSK 4</button>
+                <button class="modal-opt-btn" onclick="selModalMazo('hsk5')">HSK 5</button>
+                <button class="modal-opt-btn" onclick="selModalMazo('hsk6')">HSK 6</button>
+            </div>
+
+            <label class="modal-label" style="margin-top:16px;">Modo:</label>
+            <div class="modal-options">
+                <button class="modal-opt-btn" onclick="selModalModo('h-h')">Hanzi – Hanzi</button>
+                <button class="modal-opt-btn" onclick="selModalModo('h-p')">Hanzi – Pinyin</button>
+            </div>
+
+            <label class="modal-label" style="margin-top:16px;">Pares:</label>
+            <div class="modal-options">
+                <button class="modal-opt-btn" onclick="selModalCantidad(10)">10 pares</button>
+                <button class="modal-opt-btn" onclick="selModalCantidad(15)">15 pares</button>
+            </div>
+
+            <button class="btn-modal-next" id="btn-iniciar-memorice" onclick="confirmarModalMemorice()" style="margin-top:20px;" disabled>Empezar</button>
+            <br>
+            <button class="btn-close-modal" onclick="cerrarModalMemorice()">Cancelar</button>
         </div>
     </div>
 
-    <div id="step-cantidad" style="display: none;">
-        <h2 class="title-capsule">¿Cuántos pares?</h2>
-        <div class="deck-grid">
-            <button class="deck-card" onclick="elegirCantidad(10)">
-                <span class="deck-title">10 Pares</span>
-            </button>
-            <button class="deck-card" onclick="elegirCantidad(15)">
-                <span class="deck-title">15 Pares</span>
-            </button>
-        </div>
-    </div>
-
-    <div id="memorice-game" style="display: none;">
-        <div id="memorice-stats">
-    ⏱️ <span id="timer">00:00</span>
-    </div>
-
-        <div id="grid-container" class="memorice-grid"></div>
-    </div>
-</section>
-
+    <!-- ══════════════ MODAL: CONFIGURAR FLASHCARDS ══════════════ -->
     <div id="quantity-modal" class="modal-overlay" style="display: none;">
         <div class="modal-content">
             <h3>Configurar Sesión</h3>
             <p>Estudiando mazo: <span id="modal-deck-name"></span></p>
-            
             <div id="modal-step-subdeck">
                 <label for="select-subdeck" class="modal-label">Selecciona un bloque de estudio:</label>
-                <select id="select-subdeck" class="modal-select">
-                    </select>
+                <select id="select-subdeck" class="modal-select"></select>
                 <button class="btn-modal-next" onclick="irAPasoCantidad()">Continuar</button>
             </div>
-
             <div id="modal-step-quantity" style="display: none;">
                 <label class="modal-label">¿Cuántas palabras de este bloque deseas practicar?</label>
                 <div class="modal-options">
@@ -226,35 +300,37 @@
                 </div>
                 <button id="btn-modal-back" onclick="regresarAPasoSubdeck()">← Cambiar bloque</button>
             </div>
-            
             <br>
             <button class="btn-close-modal" onclick="cerrarModal()">Cancelar</button>
         </div>
     </div>
-    <div id="memorice-finish-modal" class="modal-overlay" style="display:none;">
-    <div class="modal-content">
-        <h2>🎉 ¡Felicidades!</h2>
 
-        <p id="memorice-final-time">
-            Completaste el memorice en 00:00
-        </p>
-
-        <div class="results-actions">
-            <button onclick="repetirMemorice()">
-                🔄 Repetir
-            </button>
-
-            <button onclick="volverMenuMemorice()">
-                🧠 Menú Memorice
-            </button>
-
-            <button onclick="volverMenuPrincipal()">
-                📚 Menú Principal
-            </button>
+    <!-- ══════════════ MODAL: CONFIGURAR FRASES ══════════════ -->
+    <div id="frases-quantity-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h3>Configurar Sesión</h3>
+            <p>Mazo de frases: <span id="frases-modal-deck-name"></span></p>
+            <label for="select-frases-bloque" class="modal-label">Selecciona un bloque de estudio:</label>
+            <select id="select-frases-bloque" class="modal-select"></select>
+            <button class="btn-modal-next" onclick="confirmarBloqueFrases()">Empezar</button>
+            <br>
+            <button class="btn-close-modal" onclick="cerrarModalFrases()">Cancelar</button>
         </div>
     </div>
-</div>
 
-<script src="app.js"></script>
+    <!-- ══════════════ MODAL: FIN MEMORICE ══════════════ -->
+    <div id="memorice-finish-modal" class="modal-overlay" style="display:none;">
+        <div class="modal-content" style="text-align:center;">
+            <h2>🎉 ¡Felicidades!</h2>
+            <p id="memorice-final-time" style="font-size:1.2rem;font-weight:bold;margin:20px 0;">Completaste el memorice en 00:00</p>
+            <div class="results-actions">
+                <button onclick="repetirMemorice()">🔄 Repetir</button>
+                <button onclick="volverMenuPrincipal()">📚 Menú Principal</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="frases.js"></script>
 </body>
 </html>

@@ -324,6 +324,7 @@ let baseDeDatosHSK = [];
         document.getElementById('res-incorrectas').innerText = totalMalas;
 
         const btnRepasarMalas = document.getElementById('btn-retry-wrongs');
+        const btnCuaderno = document.getElementById('btn-cuaderno');
         if (btnRepasarMalas) {
             if (totalMalas > 0) {
                 btnRepasarMalas.style.display = 'inline-block';
@@ -331,6 +332,9 @@ let baseDeDatosHSK = [];
             } else {
                 btnRepasarMalas.style.display = 'none';
             }
+        }
+        if (btnCuaderno) {
+            btnCuaderno.style.display = totalMalas > 0 ? 'inline-block' : 'none';
         }
     }
 
@@ -438,7 +442,7 @@ function prepararJuegoMemorice(nombreMazo, modo, numPares) {
     return mezclar(juego);
 }
     function cambiarModo(modo) {
-    const pantallas = ['menu-screen', 'study-screen', 'memorice-screen'];
+    const pantallas = ['menu-screen', 'study-screen', 'memorice-screen', 'frases-screen'];
     pantallas.forEach(id => {
         const el = document.getElementById(id);
         if (el) el.style.display = 'none';
@@ -450,11 +454,18 @@ function prepararJuegoMemorice(nombreMazo, modo, numPares) {
             break;
         case 'memorice':
             resetearMemorice();
-            const pantalla = document.getElementById('memorice-screen');
-            pantalla.style.display = 'block';
-            pantalla.classList.remove('screen-animation');
-            void pantalla.offsetWidth;
-            pantalla.classList.add('screen-animation');
+            // Reset modal state
+            _modalMazo = null; _modalModo = null; _modalCantidad = null;
+            document.querySelectorAll('#memorice-config-modal .modal-opt-btn').forEach(b => b.classList.remove('selected'));
+            const btnIniciar = document.getElementById('btn-iniciar-memorice');
+            if (btnIniciar) btnIniciar.disabled = true;
+            document.getElementById('memorice-config-modal').style.display = 'flex';
+            break;
+        case 'frases':
+            document.getElementById('frases-screen').style.display = 'block';
+            if (typeof iniciarModoFrases === 'function') {
+                iniciarModoFrases();
+            }
             break;
         default:
             document.getElementById('menu-screen').style.display = 'block';
@@ -682,4 +693,202 @@ function prepararJuegoMemorice(nombreMazo, modo, numPares) {
     document.getElementById(
         'menu-screen'
     ).style.display = 'block';
+}
+// ══════════════════════════════════════════════════
+//  MODAL MEMORICE  (reemplaza los 3 pasos en pantalla)
+// ══════════════════════════════════════════════════
+let _modalMazo = null;
+let _modalModo = null;
+let _modalCantidad = null;
+
+function _actualizarEstadoBotonMemorice() {
+    const btn = document.getElementById('btn-iniciar-memorice');
+    if (btn) btn.disabled = !(_modalMazo && _modalModo && _modalCantidad);
+}
+
+function selModalMazo(mazo) {
+    _modalMazo = mazo;
+    document.querySelectorAll('#memorice-config-modal .modal-options-grid .modal-opt-btn').forEach(b => b.classList.remove('selected'));
+    event.target.classList.add('selected');
+    _actualizarEstadoBotonMemorice();
+}
+
+function selModalModo(modo) {
+    _modalModo = modo;
+    // mark selected within Modo group only
+    const parent = event.target.closest('.modal-options');
+    parent.querySelectorAll('.modal-opt-btn').forEach(b => b.classList.remove('selected'));
+    event.target.classList.add('selected');
+    _actualizarEstadoBotonMemorice();
+}
+
+function selModalCantidad(n) {
+    _modalCantidad = n;
+    const parent = event.target.closest('.modal-options');
+    parent.querySelectorAll('.modal-opt-btn').forEach(b => b.classList.remove('selected'));
+    event.target.classList.add('selected');
+    _actualizarEstadoBotonMemorice();
+}
+
+function confirmarModalMemorice() {
+    if (!_modalMazo || !_modalModo || !_modalCantidad) return;
+    configuracionMemorice.mazo = _modalMazo;
+    configuracionMemorice.modo = _modalModo;
+    configuracionMemorice.cantidad = _modalCantidad;
+    document.getElementById('memorice-config-modal').style.display = 'none';
+
+    // Show memorice screen (game panel)
+    document.getElementById('memorice-screen').style.display = 'block';
+    document.getElementById('memorice-game').style.display = 'none'; // iniciarMemorice shows it
+    iniciarMemorice();
+}
+
+function cerrarModalMemorice() {
+    document.getElementById('memorice-config-modal').style.display = 'none';
+    _modalMazo = null; _modalModo = null; _modalCantidad = null;
+    // If we were already in the screen, go back to menu
+    document.getElementById('memorice-screen').style.display = 'none';
+    document.getElementById('menu-screen').style.display = 'block';
+}
+
+// ══════════════════════════════════════════════════
+//  CUADERNO DE REPASO
+// ══════════════════════════════════════════════════
+let cuadernoPalabras = [];
+let cuadernoIndice = 0;
+let cuadernoPistaActiva = false;
+let cuadernoSaltoActivo = false; // waiting after wrong / skip
+
+function abrirCuadernoRepaso() {
+    if (!palabrasMalasRecolectadas || palabrasMalasRecolectadas.length === 0) return;
+    cuadernoPalabras = [...palabrasMalasRecolectadas];
+
+    document.getElementById('results-screen').style.display = 'none';
+    document.getElementById('cuaderno-screen').style.display = 'block';
+
+    iniciarSeccionCuaderno(1);
+}
+
+function cerrarCuaderno() {
+    document.getElementById('cuaderno-screen').style.display = 'none';
+    document.getElementById('results-screen').style.display = 'flex';
+}
+
+function iniciarSeccionCuaderno(seccion) {
+    // Hide all sections
+    [1,2,3,'fin'].forEach(s => {
+        const el = document.getElementById(`cuaderno-seccion-${s}`);
+        if (el) el.style.display = 'none';
+    });
+    document.getElementById('cuaderno-fin').style.display = 'none';
+
+    cuadernoIndice = 0;
+    cuadernoPistaActiva = false;
+
+    document.getElementById(`cuaderno-seccion-${seccion}`).style.display = 'block';
+    mostrarTarjetaCuaderno(seccion);
+}
+
+function mostrarTarjetaCuaderno(seccion) {
+    cuadernoPistaActiva = false;
+    cuadernoSaltoActivo = false;
+
+    if (cuadernoIndice >= cuadernoPalabras.length) {
+        if (seccion < 3) {
+            iniciarSeccionCuaderno(seccion + 1);
+        } else {
+            mostrarFinCuaderno();
+        }
+        return;
+    }
+
+    const p = cuadernoPalabras[cuadernoIndice];
+    const pct = (cuadernoIndice / cuadernoPalabras.length * 100).toFixed(0);
+    document.getElementById(`barra-s${seccion}`).style.width = pct + '%';
+
+    if (seccion === 1) {
+        document.getElementById('s1-significado').innerText = p.s;
+        document.getElementById('s1-pinyin-hint').innerText = p.p;
+        document.getElementById('s1-hanzi-reveal').innerText = p.h;
+        document.getElementById('s1-pinyin-reveal').innerText = p.p + ' · ' + p.s;
+        document.getElementById('s1-hint').style.display = 'none';
+        document.getElementById('s1-respuesta-reveal').style.display = 'none';
+        const inp = document.getElementById('s1-input');
+        inp.value = ''; inp.disabled = false; inp.focus();
+    } else if (seccion === 2) {
+        document.getElementById('s2-pinyin').innerText = p.p;
+        document.getElementById('s2-significado-hint').innerText = p.s;
+        document.getElementById('s2-hanzi-reveal').innerText = p.h;
+        document.getElementById('s2-sig-reveal').innerText = p.s;
+        document.getElementById('s2-hint').style.display = 'none';
+        document.getElementById('s2-respuesta-reveal').style.display = 'none';
+        const inp = document.getElementById('s2-input');
+        inp.value = ''; inp.disabled = false; inp.focus();
+    } else if (seccion === 3) {
+        document.getElementById('s3-hanzi').innerText = p.h;
+        document.getElementById('s3-sig-hint').innerText = p.s;
+        document.getElementById('s3-pinyin-reveal').innerText = p.p;
+        document.getElementById('s3-sig-reveal').innerText = p.s;
+        document.getElementById('s3-hint').style.display = 'none';
+        document.getElementById('s3-respuesta-reveal').style.display = 'none';
+        const inp = document.getElementById('s3-input');
+        inp.value = ''; inp.disabled = false; inp.focus();
+    }
+}
+
+function verificarCuaderno(seccion) {
+    if (cuadernoSaltoActivo) return;
+
+    const inputId = `s${seccion}-input`;
+    const inp = document.getElementById(inputId);
+    const p = cuadernoPalabras[cuadernoIndice];
+
+    let respuestaCorrecta = '';
+    if (seccion === 1 || seccion === 2) respuestaCorrecta = p.h.trim();
+    if (seccion === 3) respuestaCorrecta = p.p.trim().toLowerCase();
+
+    const respuesta = inp.value.trim();
+    const comparar = seccion === 3 ? respuesta.toLowerCase() : respuesta;
+
+    if (comparar === respuestaCorrecta.toLowerCase()) {
+        inp.disabled = true;
+        cuadernoSaltoActivo = true;
+        // Show reveal briefly then advance
+        if (seccion === 1) document.getElementById('s1-respuesta-reveal').style.display = 'block';
+        if (seccion === 2) document.getElementById('s2-respuesta-reveal').style.display = 'block';
+        if (seccion === 3) document.getElementById('s3-respuesta-reveal').style.display = 'block';
+        setTimeout(() => {
+            cuadernoIndice++;
+            mostrarTarjetaCuaderno(seccion);
+        }, 900);
+    }
+}
+
+function pistaCuaderno(seccion) {
+    if (cuadernoSaltoActivo) return;
+    cuadernoPistaActiva = true;
+    if (seccion === 1) document.getElementById('s1-hint').style.display = 'block';
+    if (seccion === 2) document.getElementById('s2-hint').style.display = 'block';
+    if (seccion === 3) document.getElementById('s3-hint').style.display = 'block';
+}
+
+function saltarCuaderno(seccion) {
+    if (cuadernoSaltoActivo) return;
+    cuadernoSaltoActivo = true;
+    // Show the answer
+    if (seccion === 1) document.getElementById('s1-respuesta-reveal').style.display = 'block';
+    if (seccion === 2) document.getElementById('s2-respuesta-reveal').style.display = 'block';
+    if (seccion === 3) document.getElementById('s3-respuesta-reveal').style.display = 'block';
+    setTimeout(() => {
+        cuadernoIndice++;
+        mostrarTarjetaCuaderno(seccion);
+    }, 1200);
+}
+
+function mostrarFinCuaderno() {
+    [1,2,3].forEach(s => {
+        const el = document.getElementById(`cuaderno-seccion-${s}`);
+        if (el) el.style.display = 'none';
+    });
+    document.getElementById('cuaderno-fin').style.display = 'block';
 }
