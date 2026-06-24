@@ -210,7 +210,7 @@ function mostrarPistaFrase() {
         penalizarFraseActual();
     }
 }
-
+ 
 function saltarFrase() {
     if (esperandoSiguienteFrase || mazoFrasesActual.length === 0) return;
 
