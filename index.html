@@ -16,7 +16,7 @@
         </div>
         <div class="nav-menu" id="nav-game-menu">
             <button class="nav-btn" onclick="cambiarModo('flashcards')">Flashcards</button>
-            <button class="nav-btn" onclick="cambiarModo('memorice')">Memorice</button>
+            <button class="nav-btn" onclick="cambiarModo('tonos')">Tonos</button>
             <button class="nav-btn" onclick="cambiarModo('frases')">Frases</button>
         </div>
     </nav>
@@ -100,19 +100,81 @@
         </div>
         <div class="results-actions">
             <button id="btn-retry-wrongs" class="btn-results-primary" onclick="repasarSoloMalas()">Repasar solo las malas</button>
-            <button id="btn-cuaderno" class="btn-results-secondary btn-cuaderno" onclick="abrirCuadernoRepaso()" style="display:none;">📖 Cuaderno de repaso</button>
             <button class="btn-results-secondary" onclick="regresarAlMenuCompleto()">Volver a la Biblioteca</button>
         </div>
     </section>
 
-    <!-- ══════════════ MEMORICE ══════════════ -->
-    <section id="memorice-screen" class="screen-animation" style="display: none; padding: 20px;">
-        <div id="memorice-game" style="display: none;">
-            <div id="memorice-stats">
-                ⏱️ <span id="timer">00:00</span>
-            </div>
-            <div id="grid-container" class="memorice-grid"></div>
+    <!-- ══════════════ TONOS ══════════════ -->
+    <section id="tonos-screen" class="screen-animation" style="display:none;">
+        <header class="study-header">
+            <button onclick="salirDeTonos()">← Volver</button>
+        </header>
+
+        <div id="tonos-step-mazo">
+            <header class="capsule-header">
+                <h2 class="title-capsule">Elige el mazo</h2>
+                <p class="menu-subtitle">Pinyin sin tono → tono correcto → significado</p>
+            </header>
+            <div id="tonos-deck-grid" class="deck-grid"></div>
         </div>
+
+        <main class="game-container" id="tonos-game-container" style="display:none;">
+            <div class="scoreboard">
+                <p>Correctas: <span id="tonos-correct">0</span></p>
+                <p>Incorrectas: <span id="tonos-wrong">0</span></p>
+            </div>
+
+            <div class="cuaderno-progreso">
+                <span id="tonos-etapa-label" class="cuaderno-etapa-label">Hanzi 1 de 20</span>
+                <span id="tonos-parte-nombre" class="cuaderno-etapa-nombre">Parte 1 · Escribe el pinyin</span>
+                <div class="cuaderno-barra-outer"><div id="tonos-barra" class="cuaderno-barra-inner"></div></div>
+            </div>
+
+            <div class="cuaderno-hoja">
+                <!-- PARTE 4: significado -> escribir el hanzi -->
+                <div id="tonos-parte-4" class="tonos-parte" style="display:none;">
+                    <div id="tonos-significado-4" class="cuaderno-significado-big"></div>
+                    <div id="tonos-hint-4" class="cuaderno-hint" style="display:none;">
+                        <div id="tonos-pinyin-hint-4" class="cuaderno-pinyin-small"></div>
+                    </div>
+                    <div class="cuaderno-input-area">
+                        <input type="text" id="tonos-input-hanzi" class="cuaderno-input" placeholder="Escribe el hanzi..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" oninput="monitorearHanziTonos()">
+                    </div>
+                </div>
+                <!-- PARTE 1: hanzi -> escribir pinyin sin tono -->
+                <div id="tonos-parte-1" class="tonos-parte">
+                    <div id="tonos-hanzi-1" class="cuaderno-hanzi-big"></div>
+                    <div id="tonos-hint-1" class="cuaderno-hint" style="display:none;">
+                        <div id="tonos-significado-hint-1" class="cuaderno-significado-small"></div>
+                    </div>
+                    <div class="cuaderno-input-area">
+                        <input type="text" id="tonos-input-pinyin" class="cuaderno-input" placeholder="Escribe el pinyin sin tono..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" oninput="monitorearPinyinTonos()">
+                    </div>
+                </div>
+
+                <!-- PARTE 2: ¿qué tono lleva? (opción múltiple) -->
+                <div id="tonos-parte-2" class="tonos-parte" style="display:none;">
+                    <div id="tonos-hanzi-2" class="cuaderno-hanzi-big"></div>
+                    <div class="cuaderno-pregunta-label">¿Qué tono lleva?</div>
+                    <div id="tonos-opciones-tono" class="tonos-opciones-grid"></div>
+                </div>
+
+                <!-- PARTE 3: ¿qué significa? (opción múltiple) -->
+                <div id="tonos-parte-3" class="tonos-parte" style="display:none;">
+                    <div id="tonos-hanzi-3" class="cuaderno-hanzi-big"></div>
+                    <div id="tonos-pinyin-3" class="cuaderno-pinyin-reveal"></div>
+                    <div class="cuaderno-pregunta-label">¿Qué significa?</div>
+                    <div id="tonos-opciones-significado" class="tonos-opciones-grid"></div>
+                </div>
+
+                
+
+                <div class="cuaderno-botones">
+                    <button class="cuaderno-btn-pista" onclick="pistaTonos()">Pista</button>
+                    <button class="cuaderno-btn-saltar" onclick="saltarTonos()">Saltar →</button>
+                </div>
+            </div>
+        </main>
     </section>
 
     <!-- ══════════════ FRASES ══════════════ -->
@@ -148,135 +210,16 @@
         </main>
     </section>
 
-    <!-- ══════════════ CUADERNO DE REPASO ══════════════ -->
-    <section id="cuaderno-screen" class="screen-animation" style="display:none;">
-        <header class="study-header">
-            <button onclick="cerrarCuaderno()">← Volver a resultados</button>
-        </header>
-        <div id="cuaderno-container">
-            <!-- Sección 1: Significado -->
-            <div id="cuaderno-seccion-1" class="cuaderno-seccion" style="display:none;">
-                <div class="cuaderno-progreso">
-                    <span class="cuaderno-etapa-label">Sección 1 de 3</span>
-                    <span class="cuaderno-etapa-nombre">📖 Significado → ¿Qué hanzi es?</span>
-                    <div class="cuaderno-barra-outer"><div id="barra-s1" class="cuaderno-barra-inner"></div></div>
-                </div>
-                <div class="cuaderno-hoja">
-                    <div class="cuaderno-pregunta-label">¿Cuál es el hanzi?</div>
-                    <div id="s1-significado" class="cuaderno-significado-big"></div>
-                    <div id="s1-hint" class="cuaderno-hint" style="display:none;">
-                        <div id="s1-pinyin-hint" class="cuaderno-pinyin-small"></div>
-                    </div>
-                    <div id="s1-respuesta-reveal" class="cuaderno-hanzi-reveal" style="display:none;">
-                        <div id="s1-hanzi-reveal"></div>
-                        <div id="s1-pinyin-reveal" class="cuaderno-pinyin-reveal"></div>
-                    </div>
-                    <div class="cuaderno-input-area">
-                        <input type="text" id="s1-input" class="cuaderno-input" placeholder="Escribe el hanzi..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" oninput="verificarCuaderno(1)">
-                    </div>
-                    <div class="cuaderno-botones">
-                        <button class="cuaderno-btn-pista" onclick="pistaCuaderno(1)">Pista</button>
-                        <button class="cuaderno-btn-saltar" onclick="saltarCuaderno(1)">Saltar →</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Sección 2: Pinyin -->
-            <div id="cuaderno-seccion-2" class="cuaderno-seccion" style="display:none;">
-                <div class="cuaderno-progreso">
-                    <span class="cuaderno-etapa-label">Sección 2 de 3</span>
-                    <span class="cuaderno-etapa-nombre">🔤 Pinyin → ¿Qué hanzi es?</span>
-                    <div class="cuaderno-barra-outer"><div id="barra-s2" class="cuaderno-barra-inner"></div></div>
-                </div>
-                <div class="cuaderno-hoja">
-                    <div class="cuaderno-pregunta-label">¿Cuál es el hanzi?</div>
-                    <div id="s2-pinyin" class="cuaderno-pinyin-big"></div>
-                    <div id="s2-hint" class="cuaderno-hint" style="display:none;">
-                        <div id="s2-significado-hint" class="cuaderno-significado-small"></div>
-                    </div>
-                    <div id="s2-respuesta-reveal" class="cuaderno-hanzi-reveal" style="display:none;">
-                        <div id="s2-hanzi-reveal"></div>
-                        <div id="s2-sig-reveal" class="cuaderno-pinyin-reveal"></div>
-                    </div>
-                    <div class="cuaderno-input-area">
-                        <input type="text" id="s2-input" class="cuaderno-input" placeholder="Escribe el hanzi..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" oninput="verificarCuaderno(2)">
-                    </div>
-                    <div class="cuaderno-botones">
-                        <button class="cuaderno-btn-pista" onclick="pistaCuaderno(2)">Pista</button>
-                        <button class="cuaderno-btn-saltar" onclick="saltarCuaderno(2)">Saltar →</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Sección 3: Hanzi → escribir pinyin -->
-            <div id="cuaderno-seccion-3" class="cuaderno-seccion" style="display:none;">
-                <div class="cuaderno-progreso">
-                    <span class="cuaderno-etapa-label">Sección 3 de 3</span>
-                    <span class="cuaderno-etapa-nombre">汉字 → ¿Cómo se lee?</span>
-                    <div class="cuaderno-barra-outer"><div id="barra-s3" class="cuaderno-barra-inner"></div></div>
-                </div>
-                <div class="cuaderno-hoja">
-                    <div class="cuaderno-pregunta-label">¿Cuál es el pinyin?</div>
-                    <div id="s3-hanzi" class="cuaderno-hanzi-big"></div>
-                    <div id="s3-hint" class="cuaderno-hint" style="display:none;">
-                        <div id="s3-sig-hint" class="cuaderno-significado-small"></div>
-                    </div>
-                    <div id="s3-respuesta-reveal" class="cuaderno-hanzi-reveal" style="display:none;">
-                        <div id="s3-pinyin-reveal" class="cuaderno-pinyin-reveal"></div>
-                        <div id="s3-sig-reveal" class="cuaderno-significado-small" style="margin-top:6px;"></div>
-                    </div>
-                    <div class="cuaderno-input-area">
-                        <input type="text" id="s3-input" class="cuaderno-input" placeholder="Escribe el pinyin..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" oninput="verificarCuaderno(3)">
-                    </div>
-                    <div class="cuaderno-botones">
-                        <button class="cuaderno-btn-pista" onclick="pistaCuaderno(3)">Pista</button>
-                        <button class="cuaderno-btn-saltar" onclick="saltarCuaderno(3)">Saltar →</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Fin del cuaderno -->
-            <div id="cuaderno-fin" class="cuaderno-seccion" style="display:none;">
-                <div class="cuaderno-hoja cuaderno-fin-hoja">
-                    <div class="cuaderno-fin-emoji">🎉</div>
-                    <h2 class="cuaderno-fin-titulo">¡Cuaderno completado!</h2>
-                    <p class="cuaderno-fin-desc">Repasaste las 3 secciones de todas tus palabras pendientes.</p>
-                    <button class="btn-results-primary" onclick="cerrarCuaderno()">Volver a resultados</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══════════════ MODAL: CONFIGURAR MEMORICE ══════════════ -->
-    <div id="memorice-config-modal" class="modal-overlay" style="display:none;">
+    <!-- ══════════════ MODAL: BLOQUE DE TONOS ══════════════ -->
+    <div id="tonos-quantity-modal" class="modal-overlay" style="display: none;">
         <div class="modal-content">
-            <h3>Configurar Memorice</h3>
-
-            <label class="modal-label">Nivel:</label>
-            <div class="modal-options modal-options-grid">
-                <button class="modal-opt-btn" onclick="selModalMazo('hsk1')">HSK 1</button>
-                <button class="modal-opt-btn" onclick="selModalMazo('hsk2')">HSK 2</button>
-                <button class="modal-opt-btn" onclick="selModalMazo('hsk3')">HSK 3</button>
-                <button class="modal-opt-btn" onclick="selModalMazo('hsk4')">HSK 4</button>
-                <button class="modal-opt-btn" onclick="selModalMazo('hsk5')">HSK 5</button>
-                <button class="modal-opt-btn" onclick="selModalMazo('hsk6')">HSK 6</button>
-            </div>
-
-            <label class="modal-label" style="margin-top:16px;">Modo:</label>
-            <div class="modal-options">
-                <button class="modal-opt-btn" onclick="selModalModo('h-h')">Hanzi – Hanzi</button>
-                <button class="modal-opt-btn" onclick="selModalModo('h-p')">Hanzi – Pinyin</button>
-            </div>
-
-            <label class="modal-label" style="margin-top:16px;">Pares:</label>
-            <div class="modal-options">
-                <button class="modal-opt-btn" onclick="selModalCantidad(10)">10 pares</button>
-                <button class="modal-opt-btn" onclick="selModalCantidad(15)">15 pares</button>
-            </div>
-
-            <button class="btn-modal-next" id="btn-iniciar-memorice" onclick="confirmarModalMemorice()" style="margin-top:20px;" disabled>Empezar</button>
+            <h3>Configurar Sesión</h3>
+            <p>Mazo: <span id="tonos-modal-deck-name"></span></p>
+            <label for="select-tonos-bloque" class="modal-label">Selecciona un bloque de estudio:</label>
+            <select id="select-tonos-bloque" class="modal-select"></select>
+            <button class="btn-modal-next" onclick="confirmarBloqueTonos()">Empezar</button>
             <br>
-            <button class="btn-close-modal" onclick="cerrarModalMemorice()">Cancelar</button>
+            <button class="btn-close-modal" onclick="cerrarModalTonos()">Cancelar</button>
         </div>
     </div>
 
@@ -318,19 +261,8 @@
         </div>
     </div>
 
-    <!-- ══════════════ MODAL: FIN MEMORICE ══════════════ -->
-    <div id="memorice-finish-modal" class="modal-overlay" style="display:none;">
-        <div class="modal-content" style="text-align:center;">
-            <h2>🎉 ¡Felicidades!</h2>
-            <p id="memorice-final-time" style="font-size:1.2rem;font-weight:bold;margin:20px 0;">Completaste el memorice en 00:00</p>
-            <div class="results-actions">
-                <button onclick="repetirMemorice()">🔄 Repetir</button>
-                <button onclick="volverMenuPrincipal()">📚 Menú Principal</button>
-            </div>
-        </div>
-    </div>
-
     <script src="app.js"></script>
     <script src="frases.js"></script>
+    <script src="tonos.js"></script>
 </body>
 </html>
