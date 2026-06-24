@@ -786,132 +786,11 @@ body {
     margin-top: 20px;
 }
 
-.memorice-grid {
-    display: grid;
-    gap: 20px;
-    max-width: 1400px;
-    margin: 20px auto;
-    justify-items: center;
-}
-
-.card {
-    width: 140px;
-    height: 140px;
-    aspect-ratio: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    background: #105666;
-    color: white;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 2.2rem;
-    transition: all 0.25s ease;
-    position: relative;
-    overflow: hidden;
-
-}
-
-.side-panel {
-    writing-mode: vertical-rl;
-    text-align: center;
-    font-size: 3rem;
-    color: #666;
-    
-}
-
-.card.flipped {
-    background: white;
-    color: #1b4332;
-    border: 2px solid #1b4332;
-    transform: scale(1.05);
-}
-.card:hover:not(.flipped):not(.matched) {
-    transform: translateY(-4px);
-}
-.card span {
-    display: block;
-    width: 100%;
-    text-align: center;
-}
-.card .card-text {
-    text-align: center;
-    padding: 8px;
-    white-space: normal;
-}
-
-.card.matched {
-    background: #4CAF50;
-    color: white;
-    animation: matchPop 0.35s ease;
-}
-.texto-hanzi {
-    font-size: 2.2rem;
-    font-weight: bold;
-    text-align: center;
-}
-
-.texto-pinyin {
-    font-size: 1.3rem;
-    text-align: center;
-    padding: 6px;
-}
-
-.texto-significado {
-    font-size: 0.9rem;
-    text-align: center;
-    padding: 8px;
-
-    white-space: normal;
-    overflow-wrap: break-word;
-}
-#memorice-stats {
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-#memorice-finish-modal .modal-content {
-    text-align: center;
-    max-width: 400px;
-}
-
-#memorice-final-time {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin: 20px 0;
-}
-
-
-.grid-10{
-     display: grid;
-    grid-template-columns: repeat(5, 140px);
-    justify-content: center;
-    gap: 10px;
-}
-
-.grid-15{
-    display: grid;
-    grid-template-columns: repeat(6, 140px);
-    justify-content: center;
-    gap: 10px;
-}
-#step-mazo,
-#step-modo,
-#step-cantidad,
+#tonos-step-mazo,
 #frases-step-mazo {
     text-align: center;
 }
-@keyframes matchPop {
-    0%   { transform: scale(1); }
-    50%  { transform: scale(1.15); }
-    100% { transform: scale(1); }
-}
 
-.card.matched {
-    animation: matchPop 0.35s ease;
-}
 @keyframes shake {
     0%,100% {
         transform: translateX(0);
@@ -924,22 +803,6 @@ body {
     75% {
         transform: translateX(6px);
     }
-}
-
-.card.error {
-    animation: shake 0.25s ease;
-}
-.card::before {
-    content: "学";
-    position: absolute;
-    font-size: 5rem;
-    font-weight: 700;
-    font-weight: bold;
-    top: 50%;
-    left: 50%;
-    color: rgba(255,255,255,0.12);
-    transform: translate(-50%, -50%);
-    pointer-events: none;
 }
 
 /* --- PANTALLA: FRASES --- */
@@ -1042,7 +905,8 @@ body {
     background-color: #a0bfa5;
 }
 /* ══════════════════════════════════════════════════
-   MODAL MEMORICE – opciones seleccionables
+   BOTONES DE OPCIÓN SELECCIONABLE (reutilizados por
+   las preguntas de opción múltiple del modo Tonos)
 ══════════════════════════════════════════════════ */
 .modal-options-grid {
     display: grid;
@@ -1296,4 +1160,123 @@ body {
 .btn-cuaderno:hover {
     background: var(--verde-bosque) !important;
     color: #fff !important;
+}
+/* ══════════════════════════════════════════════════
+   BUSCADOR DE HANZIS (dentro del Cuaderno)
+══════════════════════════════════════════════════ */
+.btn-buscar-hanzi {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 24px auto;
+    padding: 14px;
+    background-color: var(--verde-claro);
+    color: var(--verde-bosque);
+    border: none;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-buscar-hanzi:hover {
+    background-color: #a0bfa5;
+}
+
+#cuaderno-step-buscar #buscar-hanzi {
+    margin-bottom: 16px;
+}
+
+.lista-hanzis {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 55vh;
+    overflow-y: auto;
+}
+
+.hanzi-item {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    background: var(--card-frente);
+    border: 1px solid var(--borde-sutil);
+    border-radius: 12px;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-align: left;
+}
+
+.hanzi-item:hover {
+    border-color: var(--verde-acento);
+    background: #f0f7f1;
+}
+
+.hanzi-item-h {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--verde-bosque);
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.hanzi-item-p {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--verde-acento);
+}
+
+.hanzi-item-s {
+    font-size: 0.85rem;
+    color: var(--texto-mutado);
+    overflow-wrap: break-word;
+}
+
+/* ══════════════════════════════════════════════════
+   MODO TONOS – opciones de tono / significado
+══════════════════════════════════════════════════ */
+.tonos-opciones-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+
+.tonos-opcion-btn {
+    width: 100%;
+    text-align: center;
+    white-space: normal;
+}
+
+.tonos-opcion-btn:disabled {
+    cursor: default;
+    opacity: 0.55;
+}
+
+.tonos-correcta {
+    background: #4CAF50 !important;
+    color: #fff !important;
+    border-color: #4CAF50 !important;
+    opacity: 1 !important;
+}
+
+.tonos-incorrecta {
+    background: var(--rojo-error) !important;
+    color: #fff !important;
+    border-color: var(--rojo-error) !important;
+    animation: shake 0.25s ease;
+}
+
+.tonos-deshabilitada {
+    opacity: 0.3 !important;
+    text-decoration: line-through;
+}
+
+.tonos-parte {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
 }
